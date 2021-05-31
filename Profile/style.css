@@ -1,0 +1,112 @@
+.collapsibleNavbar{
+    transition: ease 0.8s;
+}
+#banner{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color:rgba(15, 11, 37, 0.5);
+    justify-content: space-between;
+    width: 100%;
+    min-height: 8vh;
+    z-index: 9998;
+    align-items: center;
+    margin:auto;
+    top: 0;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    margin-top: 2vh;
+}
+#navtext{
+    font-family: 'Raleway';
+    font-size: 3vw;
+    color: white;
+    transition: top .6s;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    list-style: none;
+    font-family: 'Krub';
+}
+.navbar-brand img{
+    width: 50px;
+    height: 50px;
+}
+.navbar{
+    position: relative;
+}
+#picbanner{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.picban{
+    position:absolute;
+    z-index: -1;
+}
+.dispic{
+    width: 52vw;
+    position:absolute;
+    top: 270px;
+    z-index: 1;
+}
+.dispic img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 500px;
+    border: 1px solid black;
+    z-index: 1;
+}
+.profile-name{
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 350px;
+    left: 34vw;
+}
+.bud{
+}
+.recp{
+    text-align: left;
+}
+.accnos{
+    position: absolute;
+    left: 35vw;
+    top: 390px;
+    text-align: left;
+    width: 90vw;
+}
+@media screen and (max-width: 768px) {
+    .dispic{
+        position:static;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 170px;
+    }
+    .dispic img{
+        z-index: 1;
+    }
+    .picban{
+        right: 20px;
+    }
+    .profile-name{
+        position: static;
+        text-align: center;
+    }
+    .bud{
+        text-align: right;
+    }
+    .accnos{
+        position: static;
+        text-align: center;
+        margin: auto;
+    }
+  }

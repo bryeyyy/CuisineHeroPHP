@@ -1,0 +1,330 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
+}
+/* navbar */
+#banner{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color:rgba(15, 11, 37, 0.219);
+    justify-content: space-between;
+    width: 100%;
+    min-height: 8vh;
+    z-index: 9998;
+    align-items: center;
+    margin:auto;
+    top: 0;
+    transition: ease 0.8s;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    margin-top: 2vh;
+}
+#navtext{
+    font-family: 'Raleway';
+    font-size: 3vw;
+    color: white;
+    transition: top .6s;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    list-style: none;
+    font-family: 'Krub';
+}
+.navbar-brand img{
+    width: 50px;
+    height: 50px;
+}
+
+/* video background */
+.video-container {
+    position: relative;
+    background-color: black;
+    height: 100vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  .video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  #landingtop {
+    position: relative;
+    z-index: 2;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+#buffertop{
+    height: 10vh;
+}
+#top{
+    height: 70%;
+    align-items: center;
+}
+#bottom{
+    height: 20%;
+}
+#brandname{
+    position: absolute;
+}
+
+#desc{
+    position: relative;
+    font-family: 'Raleway';
+    font-size:2vw;
+    color: white;
+    transition: ease .8s;
+}
+#tagline{
+    position: relative;
+    font-family: 'Krub';
+    font-size: 6vw;
+    color: white;
+    transition: ease .8s;
+    -webkit-animation: focus-in-expand 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-expand 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes focus-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes focus-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+#searchbtn{
+    border: white;
+    border-style: solid;
+    border-radius: 100px;
+    text-decoration: none;
+    margin: 2vh;
+    transition: ease .8s;
+}
+#searchbtn:hover{
+    background-color: white;;
+}
+#searchbtn:hover #srch{
+    color:black;
+    font-size: 25px;
+}
+#srch{
+    font-family: 'Raleway';
+    font-size:20px;
+    color:white;
+    padding:15px;
+    transition: ease .8s;
+}
+@media (max-width: 992px) {
+  #desc{
+    text-align: center;
+    font-family: 'Raleway';
+    font-size:15px;
+  }
+  #tagline{
+    text-align: center;
+    font-size: 50px;
+  }
+}
+/* landing second section */
+#landingbot{
+    position: relative;
+    height:110vh;
+}
+#botpic{
+    object-fit: contain;
+}
+#laptop{
+    position: relative;
+    top:20px;
+    width: 100%;
+    height: auto;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+.textbot{
+    position: relative;
+    padding: 1vw;
+    right: 50px;
+    transition: ease .8s;
+    -webkit-animation: text-pop-up-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: text-pop-up-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes text-pop-up-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      text-shadow: none;
+    }
+    100% {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+    }
+  }
+  @keyframes text-pop-up-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      text-shadow: none;
+    }
+    100% {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+    }
+  }
+#bottext h1{
+    font-family: 'Krub';
+    font-size: 5vw;
+}
+#bottext p{
+    font-family: 'Krub';
+    font-size: 2vw;
+}
+#Sign{
+    border: black;
+    border-style: solid;
+    border-radius: 100px;
+    text-decoration: none;
+    margin: 2vh;
+    transition: ease .8s;
+}
+#Sign:hover{
+    background-color: rgb(0, 0, 0);;
+}
+#Sign:hover #signup{
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#signup{
+    font-family:'Raleway';
+    font-size:20px;
+    color:rgb(0, 0, 0);
+    padding:15px;
+    transition: ease .8s;
+}
+@media (max-width: 992px) {
+ #landingbot{
+   height: max-content;
+ }
+}
+
+/* footer */
+.footer{
+  position: relative;
+  height: max-content;
+  background-color: black;
+}
+.footbrnd h1{
+  padding-top: 30px;
+  color: white;
+  font-size: 50px;
+  font-family: 'Raleway';
+}
+.footbrnd p{
+  color: white;
+  font-size: 15px;
+  font-family: 'Krub';
+  margin: 6vh;
+}
+.socials ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.socials li{
+  list-style: none;
+  margin: 1vw;
+  display:inline;
+}
+.socials a{
+  text-align: center;
+}
+.socicon{
+  filter: invert(100);
+  width:50px;
+  height: auto;
+}
+.colh1{
+  font-family: 'Krub';
+  font-size: 40px;
+  color: white;
+  padding-top: 50px;
+}
+.column{
+  text-align: center;
+  align-content: center;
+}
+.contacts li{
+ list-style: none;
+ font-family: 'Krub';
+ color: white;
+}

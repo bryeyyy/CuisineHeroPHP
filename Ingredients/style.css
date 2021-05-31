@@ -1,0 +1,121 @@
+.collapsibleNavbar{
+    transition: ease 0.8s;
+}
+#banner{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color:rgba(15, 11, 37, 0.5);
+    justify-content: space-between;
+    width: 100%;
+    min-height: 8vh;
+    z-index: 9998;
+    align-items: center;
+    margin:auto;
+    top: 0;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    margin-top: 2vh;
+}
+#navtext{
+    font-family: 'Raleway';
+    font-size: 3vw;
+    color: white;
+    transition: top .6s;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    list-style: none;
+    font-family: 'Krub';
+}
+.navbar-brand img{
+    width: 50px;
+    height: 50px;
+}
+.navbar{
+    position: relative;
+}
+.icons a img{
+    border: 1px solid black;
+    padding: 5px;
+    width: 50px;
+    border-radius: 14px;
+    margin: 10px;
+    background-color: white;
+}
+.icons a img:hover{
+    filter:invert(100);
+    -webkit-transition: ease-in-out 0.3s;
+}
+.icons{
+    position: absolute;
+    top: 300px;
+}
+.Recipe-Name{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    padding-top: 30px;
+    width: 500px;
+}
+.Indention-Ing{
+    text-indent: 40px;
+}
+.Ingredient-Title{
+    padding: 10px;
+}
+.navbar{
+    background-color: black;
+}
+.more{
+    position: absolute;
+    top: 600px;
+    left: 370px;
+}
+.more div button img{
+    border: 1px solid black;
+    padding: 5px;
+    width: 50px;
+    border-radius: 14px;
+    margin: 10px;
+    background-color: white;
+}
+.more div button img:hover{
+    filter:invert(100);
+    -webkit-transition: ease-in-out 0.3s;
+}
+div div div a.dpup:hover{
+    background-color: black;
+    color: white;
+    -webkit-transition: ease-in-out 0.2s;
+}
+iframe{
+    width: 500px;
+    height: 300px;
+}
+#foodImg{
+    position: absolute;
+    top: 200px;
+    width: 40vw;
+    max-height: 400px;
+}
+@media screen and (max-width: 768px) {
+    .adjust{
+        margin-top: 300px;
+    }
+    #foodImg{
+        left: 1px;
+        top: 40px;
+        width: auto;
+        width: 500px;
+        height: 300px;
+    }
+  }
+.icons{
+    z-index: 1;
+}
