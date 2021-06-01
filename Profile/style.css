@@ -71,8 +71,6 @@
     top: 350px;
     left: 34vw;
 }
-.bud{
-}
 .recp{
     text-align: left;
 }
@@ -83,6 +81,20 @@
     text-align: left;
     width: 90vw;
 }
+button.btn div{
+    width: 105px;
+    position: absolute;
+    left: 78vw;
+    top: 250px;
+    border-radius: 100px;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+}
+button.btn div:hover{
+    filter: invert(100);
+    transition: ease-in-out 0.2s;
+}
 @media screen and (max-width: 768px) {
     .dispic{
         position:static;
@@ -90,6 +102,12 @@
         margin-right: auto;
         display: block;
         margin-top: 170px;
+    }
+    button.btn div{
+        position:static;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
     .dispic img{
         z-index: 1;

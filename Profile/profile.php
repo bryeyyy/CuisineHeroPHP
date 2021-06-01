@@ -59,10 +59,10 @@
     Sample Name
 </h3>
 <div class="row accnos">
-<h5 class="col-6 col-md-12 bud">13 Buddies</h5>
+<h5 class="col-6 col-md-12 bud">13 Following</h5>
 <h5 class="col-6 col-md-12 recp">3 Recipes</h5>
-<button class="btn col-12">Edit Profile</button>
 </div>
+<button class="btn col-12"><div>Edit Profile</div></button>
 </div>
 </div>
 </body>
