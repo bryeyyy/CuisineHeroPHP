@@ -75,15 +75,16 @@
                             </li>
                             <li class="nav-item tab1 d-none d-md-block">
                               <a class="nav-link" data-toggle="tab" href="#fol">Following</a>
+                            </li></ul>
+                            <ul class="nav nav-tabs justify-content-center" role="tablist">
+                            <li class="nav-item tab1 d-md-none">
+                              <a class="nav-link active" data-toggle="tab" href="#recp"><img width="25px" src="icons/chef-hat.png"></a>
                             </li>
                             <li class="nav-item tab1 d-md-none">
-                              <a class="nav-link active" data-toggle="tab" href="#recp"><img src="">Recipe</a>
+                              <a class="nav-link" data-toggle="tab" href="#fav"><img width="25px" src="icons/like.png"></a>
                             </li>
                             <li class="nav-item tab1 d-md-none">
-                              <a class="nav-link" data-toggle="tab" href="#fav"><img src="">Favorites</a>
-                            </li>
-                            <li class="nav-item tab1 d-md-none">
-                              <a class="nav-link" data-toggle="tab" href="#fol"><img src="">Following</a>
+                              <a class="nav-link" data-toggle="tab" href="#fol"><img width="25px" src="icons/friends.png"></a>
                             </li>
                         </ul>
                     </div>

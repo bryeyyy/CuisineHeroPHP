@@ -98,16 +98,22 @@ button.btn div:hover{
 .spacing{
     margin-top: 360px;
     border-top: 1px solid grey;
-    width: 62vw;
+    width: 500px;
 }
 .tab1 a.active{
     border-top: 3px solid black !important;
     transition: ease-in-out 0.2s;
+    border-radius: 0px;
 }
 .tab1 a{
     color: black;
 }
 @media screen and (max-width: 768px) {
+    .tab1 a.active{
+        border-top: 0px none !important;
+        transition: ease-in-out 0.2s;
+        border-bottom: 3px solid black !important;
+    }
     .dispic{
         position:static;
         margin-left: auto;
@@ -125,6 +131,10 @@ button.btn div:hover{
         margin-top: 0;
         border-top: 0px;
         border-bottom: 1px solid grey;
+        width: 100px;
+    }
+    .tab1 a img{
+        margin: auto;
     }
     .spacing{
         margin-top: 0;
