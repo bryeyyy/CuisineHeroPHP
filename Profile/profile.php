@@ -63,6 +63,43 @@
 <h5 class="col-6 col-md-12 recp">3 Recipes</h5>
 </div>
 <button class="btn col-12"><div>Edit Profile</div></button>
+<div class="container-fluid spacing" id="hey">
+                <div class="row">
+                    <div class="col-12 text-center" id="buffer">
+                        <ul class="nav nav-tabs justify-content-center" role="tablist">
+                            <li class="nav-item tab1 d-none d-md-block">
+                              <a class="nav-link active" data-toggle="tab" href="#recp">Recipe</a>
+                            </li>
+                            <li class="nav-item tab1 d-none d-md-block">
+                              <a class="nav-link" data-toggle="tab" href="#fav">Favorites</a>
+                            </li>
+                            <li class="nav-item tab1 d-none d-md-block">
+                              <a class="nav-link" data-toggle="tab" href="#fol">Following</a>
+                            </li>
+                            <li class="nav-item tab1 d-md-none">
+                              <a class="nav-link active" data-toggle="tab" href="#recp"><img src="">Recipe</a>
+                            </li>
+                            <li class="nav-item tab1 d-md-none">
+                              <a class="nav-link" data-toggle="tab" href="#fav"><img src="">Favorites</a>
+                            </li>
+                            <li class="nav-item tab1 d-md-none">
+                              <a class="nav-link" data-toggle="tab" href="#fol"><img src="">Following</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="recp" class="container tab-pane active">
+                      test1
+                    </div>
+                    <div id="fav" class="container tab-pane fade">
+                      test2
+                    </div>
+                    <div id="fol" class="container tab-pane fade">
+                      test3
+                    </div>
+                </div>
+</div>
 </div>
 </div>
 </body>
