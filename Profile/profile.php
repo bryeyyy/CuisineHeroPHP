@@ -32,10 +32,10 @@
                       <a class="nav-link" id="Feed" href="../feed.php">Feed</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">Profile</a>
+                      <a class="nav-link" href="#">About</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">About</a>
+                      <a class="nav-link" href="../DB/Logout.php">Logout</a>
                   </li>
               </ul> 
       </div>
@@ -44,25 +44,8 @@
 </header><br><br><br><br>
 
 <body>
-  <!--Banner part-->
-  <!--<div class="container-fluid">
-    <div class="row">
-    <div class="col-12 picban">
-    <img id='picbanner'src='images/".$row['banner']."'>
-    </div>
-    <div class="col-12 col-md-6 dispic">
-
-    <img src='images/".$row['dispic']."'>
-    </div>-->
   <?php include 'prof1.php'?>
-  <h3 class="col-12 profile-name">
-    Sample Name
-</h3>
-<div class="row accnos">
-<h5 class="col-6 col-md-12 bud">13 Following</h5>
-<h5 class="col-6 col-md-12 recp">3 Recipes</h5>
-</div>
-<button class="btn col-12"><div>Edit Profile</div></button>
+<button type="button" class="btn" data-toggle="modal" data-target="#EditProf"id="Edit"><div>Edit Profile</div></button>
 <div class="container-fluid spacing" id="hey">
                 <div class="row">
                     <div class="col-12 text-center" id="buffer">
@@ -104,7 +87,148 @@
 </div>
 </div>
 </body>
+<div class="modal fade" id="EditProf">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                <div class="container">
+                  <h1 style="text-align:center;">Profile Settings</h1><br>
+        <h2>Change Profile Picture</h2>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div id="croppie-demo"></div>
+              </div>
+              <div class="col-12" id="croppie-container">
+                <strong class="options">Select Image:</strong>
+                <input class="options" type="file" id="croppie-input">
+                <button class="btn btn-success options croppie-upload">Upload Image</button><br>
+                <div id="croppie-view"></div>
+              </div>
+                
+        </div>
+        <h2>Change Profile Banner</h2>
+        <div class="row">
+            <div class="col-12 text-center">
+              <div id="croppie-demo1"></div>
+              <div class="col-12 options1" id="croppie-container">
+                <strong class="options">Select Image:</strong>
+                <input class="options" type="file" id="croppie-input1">
+                <button class="btn btn-success options croppie-upload1">Upload Image</button><br>
+                <div id="croppie-view1"></div>
+              </div>
+        </div>
+        </div>
+        <h1 style="text-align:center;">Account Settings</h1><br>
+        <div class="row">
+          <div class="col-12">
+        <form action="ChangePass.php" method="POST">
+          Change Password: <input id="pw1" type="password" required name="changepassword"><br>
+          Confirm Password: <input id="pw2" type="password" required>
+          <input id="block"type="submit" value="Confirm">
+        </form>
+        <div id="match"></div>
+        </div></div>
+            </div>
+    </div></div></div></div>
 <footer>
   mga detalye natin
 </footer>
 </html>
+<script type="text/javascript">
+        $('#EditProf').on('hidden.bs.modal', function () {
+         location.reload();
+        })
+        var croppieDemo = $('#croppie-demo').croppie({
+            enableOrientation: true,
+            viewport: {
+                width: 150,
+                height: 150,
+                type:'circle'
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            }
+        });
+
+        $('#croppie-input').on('change', function () { 
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                croppieDemo.croppie('bind', {
+                    url: e.target.result
+                });
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+
+        $('.croppie-upload').on('click', function (ev) {
+            croppieDemo.croppie('result', {
+                type: 'canvas',
+                size: 'viewport'
+            }).then(function (image) {
+                $.ajax({
+                    url: "uploaddp.php",
+                    type: "POST",
+                    data: {
+                        "image" : image
+                    },
+                    success: function (data) {
+                        $("#croppie-view").html("Profile Picture updated successfully!");
+                    }
+                });
+            });
+        });
+        var croppieDemo1 = $('#croppie-demo1').croppie({
+            enableOrientation: true,
+            viewport: {
+                width: 500,
+                height: 125,
+            },
+            boundary: {
+                width: 600,
+                height: 200
+            }
+        });
+
+        $('#croppie-input1').on('change', function () { 
+            var reader1 = new FileReader();
+            reader1.onload = function (e) {
+                croppieDemo1.croppie('bind', {
+                    url: e.target.result
+                });
+            }
+            reader1.readAsDataURL(this.files[0]);
+        });
+
+        $('.croppie-upload1').on('click', function (ev) {
+            croppieDemo1.croppie('result', {
+                type: 'canvas',
+
+                size: {width:1000, height:250}
+            }).then(function (image) {
+                $.ajax({
+                    url: "uploadbn.php",
+                    type: "POST",
+                    data: {
+                        "image" : image
+                    },
+                    success: function (data) {
+                        $("#croppie-view1").html("Profile Banner updated successfully!");
+                    }
+                });
+            });
+        });
+        $('#block').prop('disabled', true);
+        $('#pw1, #pw2').on('keyup', function () {
+        if ($('#pw1').val() == $('#pw2').val() && $('#pw1').val().length > 0){
+                $('#match').html('Password matched').css('color', 'green');
+                $('#block').prop('disabled', false);
+        }
+        else{
+               $('#match').html('Not Matching').css('color', 'red');
+                $('#block').prop('disabled', true);
+       }})
+    </script>

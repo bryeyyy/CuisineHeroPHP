@@ -21,7 +21,7 @@ if($idfier==1){
     echo " Email is already taken.";
 }
 else{
-    $signup = "INSERT into acc (firstname,lastname,pass,email,banner,dispic) values ('$Fname','$Lname','$pw1','$email','1622461284.png','1622462048.png')";
+    $signup = "INSERT into acc (firstname,lastname,pass,email,banner,dispic,followno,recpno) values ('$Fname','$Lname','$pw1','$email','defaultban.png','defaultdp.png','0','0')";
     mysqli_query($con, $signup);
     echo " Registration Successful.";   
 }

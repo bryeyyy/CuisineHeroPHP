@@ -17,7 +17,7 @@
 <header>
     <nav class="navbar navbar-expand-md" id="banner">
         <div class="container-fluid" id="banner1">
-            <a class="navbar-brand" href="C:\Users\User\Documents\GitHub\CuisineHero\index.html"><img src="Images\logo white.png"></a>
+            <a class="navbar-brand" href="index.php"><img src="Images\logo white.png"></a>
             <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <img src="Images\burjer.png" width="30" height="20">
             </button>
@@ -30,7 +30,7 @@
                         <a class="nav-link" id="Feed" href="#" data-toggle="modal" data-target="#Login">Feed</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="#">Search</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -51,10 +51,10 @@
             <div class="row" id="buffertop">
                 <div class="col-mid-auto col-sm-3"></div>
             </div>
-            <div class="row d-flex justify-content-center" id="top">
+            <div class="row d-flex justify-content-center" id="top" >
                 <div class="col-lg-12 text-center col-sm-12" id="brandname">
                     <h1 class="font-weight-bold" id="tagline">Your #1 Kitchen Buddy!</h1>
-                    <p id="desc">Plan your meals intelligently with CuisineHero.</p> 
+                    <p id="desc">View delicious recipes and plan your meals smartly with with CuisineHero.</p> 
                 </div>
             </div>
             <div class="row" id="bottom">
@@ -70,7 +70,6 @@
         </div>
     </div>
    
-    
     <!--malawak na scroll down ng features-->
 <div class="container-fluid" id="landingbot">
     <div class="row" id="buffertop">
@@ -90,15 +89,15 @@
                 <p>With the Recipe Feed, you can post your own recipes, and view recipes from your community.</p>
             </div>
             <div class="text-center">
-                <button type="button" class="btn" data-toggle="modal" data-target="#Sign-Up"
-                    id="Sign"><span id="signup">Go to your Feed</span></button>
+                <button type="button" class="btn" data-toggle="modal" data-target="#Sign-Up"id="Sign">
+                    <span id="signup">Go to your Feed</span></button>
                 <!--pasabi nalang if babaguhin to :V-->
             </div>
             
         </div>
     </div>
 </div>
-    <div class="modal fade" id="Sign-Up">
+<div class="modal fade" id="Sign-Up">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -138,7 +137,7 @@
                         <input type="password" name="LogPassword" placeholder="Password" autocomplete="false">
                         <input type="submit" value="Login">
                     </form>
-                </div>-
+                </div>
                 <div class="modal-footer">
                     Create an account?<button type="button" class="btn btn-outline-warning" data-dismiss="modal"
                         data-toggle="modal" data-target="#Sign-Up">Sign-Up</button>
@@ -146,9 +145,8 @@
         </div>
     </div>
 </div>
-</body>
 <footer>
-    <div class="footer">
+    <div class="footer col-12">
         <div class="row">
             <div class="col-lg-4 col-sm-12 column">
                 <div class="footbrnd text-center">
@@ -191,6 +189,14 @@
       }
       prevScrollpos = currentScrollPos;
     }
+
+    import LocomotiveScroll from "https://cdn.skypack.dev/locomotive-scroll";
+
+    const scroller = new LocomotiveScroll({
+    el: document.querySelector("[data-scroll-container]"),
+    smooth: true
+});
+    
 </script>
 <script>
     $(document).ready(function () {

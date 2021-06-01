@@ -14,7 +14,7 @@
     justify-content: space-between;
     width: 100%;
     min-height: 8vh;
-    z-index: 9998;
+    z-index:9998;
     align-items: center;
     margin:auto;
     top: 0;
@@ -45,17 +45,29 @@
 
 /* body */
 #buffer{
-    position: Relative;
-    height: 130px;
+    position: relative;
+    height: 110px;
     align-items: center;
 }
-.feedtxt{
-    position: absolute;
-    bottom: -8px;
-    font-family: 'Krub';
+.nav-tabs{
+    margin-top:80px;
 }
+.nav-tabs > li > a{
+    font-size:20px;
+    color: black;
+}
+.nav-tabs > li > a.active {
+    background-color: black !important;
+    border-radius: 25px;
+    transition: ease .8s;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+}
+
+
 #sec2{
-    height:81vh;
+    height:70vh;
     transition: ease .8s;
 }
 #firstsec{
@@ -74,6 +86,7 @@
     align-items: center;
 }
 .prf{
+    margin-top:20px;
     border-radius: 20px;
     background-color: rgba(66, 63, 63, 0.562);
     height: max-content;
@@ -130,15 +143,16 @@
     padding:15px;
     transition: ease .8s;
 }
-.posts{
-    padding: 10px;
-}
 .card{
     border: solid black;
     height: max-content;
     width: auto;
     padding:20px;
-    margin-bottom:50px;
+    margin-bottom:20px;
+    box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+-webkit-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+-moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+cursor: pointer;
 }
 .dp{
     position: relative;
@@ -157,11 +171,11 @@
 .usrnm{
     position: relative;
     left: 65px;
-    top:-65px;
+    top:-60px;
 }
 .usrnm p{
     font-family: 'Krub';
-    font-size: 20px;
+    font-size: 15px;
 }
 .foodpic{
     margin-top:-50px;
@@ -174,18 +188,22 @@
     max-width:100%;
     max-height:100%;
 }
+.foodlabel{
+    font-family: 'Raleway';
+}
 @media (max-width: 1295px) {
     .foodpic{
-    width:40vw;
-    height:auto;
+        width:40vw;
+        height:auto;
     }
-}.community{
+}
+.community{
     padding: 20px;
-    align-items: center;
 }
 .comcard{
+    text-align: center;
     height:100%;
-    width: 100%;
+    width: 300px;
     padding: 10px;
     border-radius: 20px;
     background-color: rgba(66, 63, 63, 0.562);
@@ -199,34 +217,72 @@
     font-size: 2vw;
 }
 .personcard{
-    position:relative;
-    width: 80%;
+    margin-right:50px;
+    width: 100%;
     height: max-content;
     border: solid white;
     padding: 10px;
     margin-top: 15px;
     border-radius: 50px;
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 .dp2{
+    position: absolute;
     width:50px;
     height:50px;
     border: solid white;
     border-radius: 25px;
     overflow: hidden;
-    margin-right: 20px;
+    left:53px
 }
 .dp2 img{
     max-width:100%;
     max-height:100%;
 }
 .usrnm2{
-    position: absolute;
-    top:20.0px;
-    left: 80px;
-}
-.usrnm2 p{
+    padding-top: 15px;
+    padding-right: 10px;;
     font-family: 'Krub';
     font-size: 1vw;
     color: white;
+}
+@media (max-width: 1295px) {
+    .comcard{
+        height:100%;
+        max-width: 20vw;
+    }
+}
+
+#formcol h1{
+    font-family: "Raleway";
+}
+.formlabel{
+    font-family: "Raleway";
+    font-size: 20px;
+}
+
+#postbtn{
+    border: Black;
+    background-color: black;
+    border-style: solid;
+    border-radius: 100px;
+    text-decoration: none;
+    margin: 2vh;
+    transition: ease .8s;
+}
+#postbtn:hover{
+    background-color: white;
+}
+#postbtn:hover .posttxt{
+    color:black;
+    font-size: 25px;
+}
+.posttxt{
+    font-family: 'Raleway';
+    font-size:20px;
+    color:white;
+    padding:15px;
+    transition: ease .8s;
 }

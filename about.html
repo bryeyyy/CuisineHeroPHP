@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>About - CuisineHero</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link rel="shortcut icon" href="images/logo white.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css files\about.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Krub' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+</head>
+<header>
+    <nav class="navbar navbar-expand-md" id="banner">
+        <div class="container-fluid" id="banner1">
+            <a class="navbar-brand" href="C:\Users\User\Documents\GitHub\CuisineHero\index.html"><img src="Images\logo white.png"></a>
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <img src="Images\burjer.png" width="30" height="20">
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link d-block d-sm-block d-md-none" href="#">CuisineHero</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="Feed" href="#" data-toggle="modal" data-target="#Login">Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul> 
+        </div>
+        <p class="navbar-center d-none d-md-block d-lg-block d-xl-block" id="navtext">CuisineHero</p>
+    </nav>
+</header>
+<body data-scroll-container>
+    <div class="container-fluid">
+        <div class="row" id="row1" data-scroll-section>
+            <div class="col-12" >
+                <section >
+                    <p data-scroll>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum minus autem excepturi repellendus provident neque impedit amet reprehenderit, assumenda consectetur ipsam quas, unde fugiat tempore fuga maiores doloremque. Laboriosam, odit.
+                    </p>
+                </section>
+            </div>
+        </div>
+        <div class="row" id="row2" data-scroll-section>
+            <div class="col-12" >
+                <section >
+                    <p  data-scroll data-scroll-direction="horizontal" data-scroll-speed="1" data-scroll-class="appear" data-scroll-repeat="true">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum minus autem excepturi repellendus provident neque impedit amet reprehenderit, assumenda consectetur ipsam quas, unde fugiat tempore fuga maiores doloremque. Laboriosam, odit.
+                    </p>
+                    <p data-scroll data-scroll-speed="2" data-scroll-direction="vertical">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum minus autem excepturi repellendus provident neque impedit amet reprehenderit, assumenda consectetur ipsam quas, unde fugiat tempore fuga maiores doloremque. Laboriosam, odit.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script>
+    const scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true
+});
+</script>
+<script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("banner").style.top = "0";
+      } else {
+        document.getElementById("banner").style.top = "-110px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+
+    import LocomotiveScroll from "https://cdn.skypack.dev/locomotive-scroll";
+
+    const scroller = new LocomotiveScroll({
+    el: document.querySelector("[data-scroll-container]"),
+    smooth: true
+});
+</script>

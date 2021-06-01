@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
+}
+/* navbar */
+#banner{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color:rgba(15, 11, 37, 0.219);
+    justify-content: space-between;
+    width: 100%;
+    min-height: 8vh;
+    z-index: 9998;
+    align-items: center;
+    margin:auto;
+    top: 0;
+    transition: ease 0.8s;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    margin-top: 2vh;
+}
+#navtext{
+    font-family: 'Raleway';
+    font-size: 3vw;
+    color: white;
+    transition: top .6s;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    list-style: none;
+    font-family: 'Krub';
+}
+.navbar-brand img{
+    width: 50px;
+    height: 50px;
+}
+
+#row1{
+    height: 100vh;
+    border: solid black;
+}
+#row2{
+    height: 100vh;
+    border: solid yellow;
+    font-size:  3vw;
+}
