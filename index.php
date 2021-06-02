@@ -101,7 +101,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <p>Sign-Up</p>
+                    Sign-Up
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -127,8 +127,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div id="LogFirst"></div>
-                    <div>Login</div>
+                    <div id="LogFirst">Login</div>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -189,22 +188,13 @@
       }
       prevScrollpos = currentScrollPos;
     }
-
-    import LocomotiveScroll from "https://cdn.skypack.dev/locomotive-scroll";
-
-    const scroller = new LocomotiveScroll({
-    el: document.querySelector("[data-scroll-container]"),
-    smooth: true
-});
 </script>
 <script>
-    $(document).ready(function () {
-        $("#Feed").click(function () {
-            $("#LogFirst").text("You need to login first to continue.");
-        });
-        $("#Sign").click(function () {
-            $("#LogFirst").empty();
-        });
+    $('#Sign').click(function () {
+    $("#LogFirst").html("Login");
+    });
+    $("#Feed").click(function () {  
+    $("#LogFirst").html("You need to login first to continue.");
     });
     $('#block').prop('disabled', true);
     $('#pw1, #pw2').on('keyup', function () {
