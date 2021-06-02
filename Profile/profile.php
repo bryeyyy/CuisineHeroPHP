@@ -48,7 +48,10 @@
 
 <body>
   <?php include 'prof1.php'?>
-<button type="button" class="btn" data-toggle="modal" data-target="#EditProf"id="Edit"><div>Edit Profile</div></button>
+  <div class="row">
+<div class="col-12 Editbtn">
+    <button type="button" class="btn" data-toggle="modal" data-target="#EditProf"id="Edit"><div>Edit Profile</div></button>
+</div></div>
 <div class="container-fluid spacing" id="hey">
                 <div class="row">
                     <div class="col-12 text-center" id="buffer">
@@ -86,9 +89,7 @@
                       test3
                     </div>
                 </div>
-</div>
-</div>
-</div>
+</div></div></div>
 </body>
 <div class="modal fade" id="EditProf">
         <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
@@ -172,6 +173,11 @@
                 type: 'canvas',
                 size: 'viewport'
             }).then(function (image) {
+                var ext = $('#croppie-input').val().split('.').pop().toLowerCase();
+                if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+                alert('invalid extension!');
+                }
+                else{
                 $.ajax({
                     url: "uploaddp.php",
                     type: "POST",
@@ -182,6 +188,7 @@
                         $("#croppie-view").html("Profile Picture updated successfully!");
                     }
                 });
+            }
             });
         });
         var croppieDemo1 = $('#croppie-demo1').croppie({
@@ -212,6 +219,11 @@
 
                 size: {width:1000, height:250}
             }).then(function (image) {
+                var ext1 = $('#croppie-input1').val().split('.').pop().toLowerCase();
+                if($.inArray(ext1, ['gif','png','jpg','jpeg']) == -1) {
+                alert('invalid extension!');
+                }
+                else{
                 $.ajax({
                     url: "uploadbn.php",
                     type: "POST",
@@ -222,6 +234,7 @@
                         $("#croppie-view1").html("Profile Banner updated successfully!");
                     }
                 });
+            }
             });
         });
         $('#block').prop('disabled', true);

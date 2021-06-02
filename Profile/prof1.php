@@ -10,7 +10,7 @@ $query = "SELECT * FROM acc WHERE email = '$email'";
 
 if ($result = $con->query($query)){
     $row = mysqli_fetch_array($result);
-    echo '<div class="col-12 picban">';
+    echo '<div class="container-fluid"><div class="row"><div class="col-12 picban">';
     echo "<img id='picbanner'src='images/".$row['banner']."'>";//Banner
     echo '</div>
         <div class="col-12 dispic">';
