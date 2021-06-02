@@ -9,6 +9,12 @@ list($type, $data) = explode(';', $data);
 list(, $data) = explode(',', $data);
 $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
 
+$sqlim = "SELECT * from acc WHERE email ='$email'";
+if ($result = $db->query($sqlim)){
+    $row = mysqli_fetch_array($result);
+    $prevImg = 'images/'.$row['banner'].'';
+    unlink($prevImg);
+}
 $data = base64_decode($data);
 $imageName = time().'.png';
 file_put_contents('images/'.$imageName, $data);

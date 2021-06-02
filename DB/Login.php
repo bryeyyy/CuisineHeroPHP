@@ -20,7 +20,7 @@ if($idfier==1){
     while ($NameRes = mysqli_fetch_array($result)){
     $_SESSION['firstname']=$NameRes['firstname'];
     $_SESSION['email']=$NameRes['email'];
-    }   
+    }
     header('location:../feed.php');
 }
 else{

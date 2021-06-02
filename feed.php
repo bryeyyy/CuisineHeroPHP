@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    if(isset($_SESSION['firstname']) && isset($_SESSION['email'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <title>Feed - CuisineHero</title>
@@ -176,4 +180,10 @@
             </div>    
 </body>
 </html>
-
+<?php
+    } 
+else {
+    header('location:index.php');
+    exit();
+}
+?>

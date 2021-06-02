@@ -196,7 +196,6 @@
     el: document.querySelector("[data-scroll-container]"),
     smooth: true
 });
-    
 </script>
 <script>
     $(document).ready(function () {

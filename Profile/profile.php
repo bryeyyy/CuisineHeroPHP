@@ -1,9 +1,12 @@
+<?php
+    session_start();
+    if(isset($_SESSION['firstname']) && isset($_SESSION['email'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <title>CuisineHero |Profile</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <head>
   <link rel="shortcut icon" href="../Images/logo white.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -232,3 +235,10 @@
                 $('#block').prop('disabled', true);
        }})
     </script>
+<?php 
+    }
+    else{
+        header('location:../index.php');
+        exit();
+    }
+?>
