@@ -12,17 +12,19 @@ $querym = "SELECT * FROM meat WHERE food_id = 1";
 $queryv = "SELECT * FROM veggies WHERE food_id = 1";
 $queryc = "SELECT * FROM condiments WHERE food_id = 1";
 
+$_SESSION['food_id']=1;
+
 if ($result = $con->query($queryf)){ //Food Name
         $row = mysqli_fetch_array($result);
-        echo '<div class="col-12 col-md-5">';
+        echo '<div class="col-12 col-md-5 foodImg">';
         echo "<img id='foodImg'src='images/".$row['food_img']."'>";
         echo'
         </div>
         <div class="col-12 col-md-6 adjust">
         <div class="container-fluid">
         <h1 class="col-12 Recipe-Name">';
-  $result = $con->query($queryf);
-  $row = $result->fetch_assoc();
+        $result = $con->query($queryf);
+        $row = $result->fetch_assoc();
         $foodname = $row["food_name"];
         echo $foodname;
         echo '</h1>

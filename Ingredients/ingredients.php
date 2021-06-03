@@ -30,10 +30,10 @@
                       <a class="nav-link d-block d-sm-block d-md-none" href="#">CuisineHero</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" id="Feed" href="#" data-toggle="modal" data-target="#Login">Feed</a>
+                      <a class="nav-link" id="Feed" href="../feed.php">Feed</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">Profile</a>
+                      <a class="nav-link" href="../Profile/profile.php">Profile</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#">About</a>
@@ -51,9 +51,9 @@
           <div class="col-1 d-none d-md-block">
             <div class="container-fluid position-fixed icons">
               <div class="row">
-                <div class="col-12"><a href=""><img src="like.png"></a></div>
-                <div class="col-12"><a href=""><img src="share.png"></a></div>
-                <div class="col-12"><a href=""><img src="comment.png"></a></div>
+                <div class="col-12"><?php include 'qlike.php'?></div>
+                <div class="col-12"><button type="submit" class="btn"><img src="share.png"></button></div>
+                <div class="col-12"><button type="submit" class="btn"><img src="comment.png"></button></div>
             </div></div>
           </div><br><br>
           <?php include 'ingrelist.php'?>
@@ -67,16 +67,30 @@
         <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="more.png"></button>
           <div class="dropdown-menu">
-              <a href="" class="dropdown-item dpup">Like</a>
-              <a href="" class="dropdown-item dpup">Share</a>
-              <a href="" class="dropdown-item dpup">Comment</a>
+              <button href="" class="dropdown-item like-btn dpup">Like</button>
+              <button href="" class="dropdown-item dpup">Share</button>
+              <button href="" class="dropdown-item dpup">Comment</button>
           </div>
       </div>
     </div>
 </body> <br><br><br><br>
-
 <footer>
     mga detalye natin
 </footer>
 </html>
+<script>
+  $('.like-btn').click(function(){
+    if($('.like-btn').val() == 1){
+      $('.like-btn').removeClass('liked');
+      $('.like-btn').val(0);
+      $.post("likebtn.php", {liked: '-1'});
+    }
+    else
+    {
+      $('.like-btn').addClass('liked');
+      $('.like-btn').val(1);
+      $.post("likebtn.php", {liked: '1'});
+    }
+  });
+</script>
 

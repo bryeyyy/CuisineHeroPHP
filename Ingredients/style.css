@@ -41,17 +41,26 @@
 .navbar{
     position: relative;
 }
-.icons a img{
+.icons .row div button{
+    outline: none;
+    padding: 0;
+    width: 50px;
+    margin: 10px;
+}
+
+.icons .row div button img{
     border: 1px solid black;
     padding: 5px;
     width: 50px;
     border-radius: 14px;
-    margin: 10px;
     background-color: white;
 }
-.icons a img:hover{
+.icons .row div button img:hover{
     filter:invert(100);
     -webkit-transition: ease-in-out 0.3s;
+}
+.icons .row div button.liked img{
+    filter:invert(100);
 }
 .icons{
     position: absolute;
@@ -105,15 +114,22 @@ iframe{
     max-height: 400px;
 }
 @media screen and (max-width: 768px) {
-    .adjust{
-        margin-top: 300px;
-    }
-    #foodImg{
-        left: 1px;
-        top: 40px;
-        width: auto;
+    .foodImg{
+        overflow: hidden;
+        margin-top:20px;
         width: 500px;
         height: 300px;
+    }
+    .dropdown-menu .like-btn.liked{
+        background-color: black;
+        color: white;
+    }
+    #foodImg{
+        position: static;
+        width: 500px;
+        height: 100vh;
+        margin: auto;
+        display: block;
     }
   }
 .icons{

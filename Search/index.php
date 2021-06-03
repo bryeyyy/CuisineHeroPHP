@@ -2,7 +2,7 @@
 	if (isset($_POST['search'])) {
 		$response = "<ul><li>No data found!</li></ul>";
 
-		$connection = new mysqli('localhost', 'root', '', 'dbCuisine');
+		$connection = new mysqli('localhost', 'root', '', 'food');
 		$q = $connection->real_escape_string($_POST['q']);
 
 		$sql = $connection->query("SELECT * FROM ingredients_all
