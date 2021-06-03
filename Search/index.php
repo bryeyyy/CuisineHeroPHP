@@ -26,7 +26,7 @@
 ?>
 <html>
     <head>
-        <title>Sayo ano ba</title>
+        <title>CuisineHero| Search</title>
         <style type="text/css">
             ul {
                 float: left;
@@ -47,7 +47,7 @@
         </style>
     </head>
     <body>
-    	<form action="search.php" method="post">
+    	<form action="search1.php" method="post">
     		<input type="text" name ="txtIng" placeholder="Search ingredients..." id="searchBox" autocomplete="off"><input type="submit" name="btnSubmit" value="Submit">
     		<div id="response"></div>
     	</form>

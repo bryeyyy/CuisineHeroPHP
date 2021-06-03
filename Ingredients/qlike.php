@@ -9,7 +9,6 @@ $food_id = isset($_SESSION['food_id'])? $_SESSION['food_id'] : null;
 
 $con = mysqli_connect($server,$username,$password,$dbname);
 $sel = "SELECT * from like_log WHERE email='$email' AND food_id='1'";
-
 if($result = $con->query($sel)){
         $row = $result->fetch_assoc(); 
         if(intval($row['liked']) == 1){
@@ -17,6 +16,6 @@ if($result = $con->query($sel)){
         }
         else {
             echo '<button type="submit" class="btn like-btn" value="0"><img src="like.png"></button>';
-        }
+    }
 }
 ?>

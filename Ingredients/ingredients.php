@@ -78,19 +78,26 @@
     mga detalye natin
 </footer>
 </html>
+<?php if (isset($email)){echo"
 <script>
   $('.like-btn').click(function(){
     if($('.like-btn').val() == 1){
       $('.like-btn').removeClass('liked');
       $('.like-btn').val(0);
-      $.post("likebtn.php", {liked: '-1'});
+      $.post('likebtn.php', {liked: '-1'});
     }
     else
     {
       $('.like-btn').addClass('liked');
       $('.like-btn').val(1);
-      $.post("likebtn.php", {liked: '1'});
+      $.post('likebtn.php', {liked: '1'});
     }
   });
-</script>
-
+</script>";
+}else{echo"
+  <script>
+    $('.like-btn').click(function(){
+    alert('Login first to like the recipe.')
+    });
+  </script>";
+}?>

@@ -29,13 +29,16 @@
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                      <a class="nav-link d-block d-sm-block d-md-none" href="#">CuisineHero</a>
+                      <a class="nav-link d-block d-sm-block d-md-none" href="../feed.php">CuisineHero</a>
                   </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="../Search/search.php">Search</a>
+                    </li>
                   <li class="nav-item">
                       <a class="nav-link" id="Feed" href="../feed.php">Feed</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">About</a>
+                      <a class="nav-link" href="../about.html">About</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="../DB/Logout.php">Logout</a>
@@ -137,9 +140,6 @@
         </div></div>
             </div>
     </div></div></div></div>
-<footer>
-  mga detalye natin
-</footer>
 </html>
 <script type="text/javascript">
         $('#EditProf').on('hidden.bs.modal', function () {

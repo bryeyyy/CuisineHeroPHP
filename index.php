@@ -17,7 +17,7 @@
 <header>
     <nav class="navbar navbar-expand-md" id="banner">
         <div class="container-fluid" id="banner1">
-            <a class="navbar-brand" href="index.php"><img src="Images\logo white.png"></a>
+            <a class="navbar-brand" href="C:\Users\User\Documents\GitHub\CuisineHero\index.html"><img src="Images\logo white.png"></a>
             <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <img src="Images\burjer.png" width="30" height="20">
             </button>
@@ -30,10 +30,10 @@
                         <a class="nav-link" id="Feed" href="#" data-toggle="modal" data-target="#Login">Feed</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Search</a>
+                        <a class="nav-link" href="Search/search.php">Search</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                 </ul> 
         </div>
@@ -89,61 +89,76 @@
                 <p>With the Recipe Feed, you can post your own recipes, and view recipes from your community.</p>
             </div>
             <div class="text-center">
-                <button type="button" class="btn" data-toggle="modal" data-target="#Sign-Up"id="Sign">
-                    <span id="signup">Go to your Feed</span></button>
+                <button type="button" class="btn" data-toggle="modal" data-target="#Sign-Up"
+                    id="Sign"><span id="signup">Go to your Feed</span></button>
                 <!--pasabi nalang if babaguhin to :V-->
             </div>
             
         </div>
     </div>
 </div>
-<div class="modal fade" id="Sign-Up">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
+    <div class="modal fade" id="Sign-Up">
+        <div class="modal-dialog modal-dialog-centered modal-lg text-center" >
+            <div class="modal-content" id="signupmod">
                 <div class="modal-header">
-                    Sign-Up
+                    <p class="font-weight-bold">Sign-Up</p>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form action="DB/SignUp.php" method="post">
-                        <input type="text" name="firstname" placeholder="First Name" autocomplete="false" required>
-                        <input type="text" name="lastname" placeholder="Last Name" autocomplete="false" required>
-                        <input type="email" name="email" placeholder="E-mail" autocomplete="false" required>
-                        <input type="password" name="password" id="pw1" placeholder="Password" autocomplete="false" required>
-                        <input type="password" id="pw2" placeholder="Confirm Password" autocomplete="false">
-                        <br><span id="match"></span><br>
+                    <form action="DB/SignUp.php" method="post" class="form-horizontal">
+                        <div class="form-group control-label">
+                            <input type="text" name="firstname" placeholder="First Name" autocomplete="false" required>
+                        </div>
+                        <div class="form-group control-label">
+                            <input type="text" name="lastname" placeholder="Last Name" autocomplete="false" required>
+                        </div>
+                        <div class="form-group control-label">
+                            <input type="email" name="email" placeholder="E-mail" autocomplete="false" required>
+                        </div>
+                        <div class="form-group control-label">
+                            <input type="password" name="password" id="pw1" placeholder="Password" autocomplete="false" required>
+                        </div>
+                        <div class="form-group control-label">
+                            <input type="password" id="pw2" placeholder="Confirm Password" autocomplete="false">
+                            <br><span id="match"></span><br>
+                        </div>
                         <input type="submit" value="Sign-Up" id="block">
                     </form>
 
                 </div>
-                <div class="modal-footer">
-                    Already have an account?<button type="button" class="btn btn-outline-warning" data-toggle="modal"
-                        data-target="#Login" data-dismiss="modal">Login</button>
+                <div class="modal-footer justify-content-center">
+                    <span class="dialouge">Already have an account?</span><button type="button" class="btn loginbtn" data-toggle="modal"
+                        data-target="#Login" data-dismiss="modal"><span id="log">Login</span></button>
                 </div>
             </div>
         </div>
     </div>
     <div class="modal fade" id="Login">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered modal-lg  text-center">
+            <div class="modal-content" id="modal2">
                 <div class="modal-header">
-                    <div id="LogFirst">Login</div>
+                    <div id="LogFirst" class="font-weight-bold"></div>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form action="DB/Login.php" method="POST">
-                        <input type="email" name="LogEmail" placeholder="E-mail" autocomplete="false">
-                        <input type="password" name="LogPassword" placeholder="Password" autocomplete="false">
-                        <input type="submit" value="Login">
+                        <div class="form-group control-label">
+                            <input type="email" name="LogEmail" placeholder="E-mail" autocomplete="false">
+                        </div>
+                        <div class="form-group control-label">
+                            <input type="password" name="LogPassword" placeholder="Password" autocomplete="false">
+                        </div>
+                        <input type="submit" value="Login" id="block2">
                     </form>
                 </div>
-                <div class="modal-footer">
-                    Create an account?<button type="button" class="btn btn-outline-warning" data-dismiss="modal"
-                        data-toggle="modal" data-target="#Sign-Up">Sign-Up</button>
+                <div class="modal-footer justify-content-center" >
+                    <span class="dialouge">Create an account?</span><button type="button" class="btn signinbtn" data-dismiss="modal"
+                        data-toggle="modal" data-target="#Sign-Up"><span class="signbtntxt">Sign-Up</span></button>
             </div>
         </div>
     </div>
 </div>
+</body>
 <footer>
     <div class="footer col-12">
         <div class="row">
@@ -200,11 +215,11 @@
     $('#pw1, #pw2').on('keyup', function () {
     if ($('#pw1').val() == $('#pw2').val() && $('#pw1').val().length > 0){
             $('#match').html('Password matched').css('color', 'green');
-            $('#block').prop('disabled', false);
+            $('#block').prop('disabled', false).css('border','solid yellow 2px');
     }
     else{
             $('#match').html('Not Matching').css('color', 'red');
-            $('#block').prop('disabled', true);
+            $('#block').prop('disabled', true).css('border','solid red 2px');
     }
 });
 </script>

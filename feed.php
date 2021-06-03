@@ -31,6 +31,9 @@
                         <a class="nav-link d-block d-sm-block d-md-none" href="index.html">CuisineHero</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="Search/search.php">Search</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="Profile/profile.php">Profile</a>
                     </li>
                     <li class="nav-item">

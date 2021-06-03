@@ -22,12 +22,14 @@ if ($result = $con->query($queryf)){ //Food Name
         </div>
         <div class="col-12 col-md-6 adjust">
         <div class="container-fluid">
-        <h1 class="col-12 Recipe-Name">';
+        <h1 class="col-12 col-md-6 Recipe-Name">';
         $result = $con->query($queryf);
         $row = $result->fetch_assoc();
         $foodname = $row["food_name"];
         echo $foodname;
-        echo '</h1>
+        $result = $con->query($queryf);
+        $row = mysqli_fetch_assoc($result);
+        echo '</h1><h6 class="col-12 col-md-6">'.$row['likes'].' Like(s)</h6>
         <div class="col-12 Indention-Ing">
         Preparation Time: <span>wala pa</span>
         </div>
