@@ -1,6 +1,16 @@
 <?php
     session_start();
     if(isset($_SESSION['firstname']) && isset($_SESSION['email'])){
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "food";
+    $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
+
+    $con = mysqli_connect($server,$username,$password,$dbname);
+    $query = "SELECT * FROM acc WHERE email = '$email'";
+    if ($result = $con->query($query)){
+        $row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,15 +78,17 @@
                                 <div class="profcard float-right">
                                     <div class="prf">
                                         <div class="prfimg">
-                                            <img class = "img-fluid" src="Images\sample pic.jpg"> <!--profile picture-->
+                                            <?php echo "<img class='image-fluid' src='Profile/images/".$row['dispic']."'>";?>
+                                             <!--profile picture-->
                                         </div>
                                         <div class="prfname">
-                                            <h3>Lisbeth Noel</h3> <!--username-->
+                                            <?php echo '<h3>'.$row["firstname"].' '.$row["lastname"].'</h3>';?>
+                                            <!--username-->
                                         </div>
                                         <div class="prfdata">
-                                            <h5 class="buddycount">Followers: <span>13 <!--bilang ng friends--></span> <br> <br>  Following:<span> 13 <!--bilang ng friends--></span></h5> <!--bilang ng friends-->
+                                            <h5 class="buddycount">Following: <span><?php echo $row['followno'];?><!--bilang ng friends--></span> <br> <br>  Recipe:<span> <?php echo $row['recpno'];?><!--bilang ng friends--></span></h5> <!--bilang ng friends-->
                                         </div>
-                                        <a href="#" class="btn" role="button" id="profbtn"><span id="prftxt">Profile</span></a>
+                                        <a href="Profile/profile.php" class="btn" role="button" id="profbtn"><span id="prftxt">Profile</span></a>
                                     </div>
                                 </div>   
                             </div>
@@ -146,32 +158,36 @@
                       <div class="row" id="sec3">
                         <div class="col text-center" id="formcol">
                             <h1>Share your own recipes!</h1>
-                            <form action="/recipe.php">
+                            <form method="POST" action="feed_files/recipemake.php">
                                 <label for="recimg"><span class="formlabel">Upload Recipe Picture</span></label><br>
                                 <input type="file" id="recipeimg" name="filename">
                                 <div class="form-group">
                                     <label for="prep"><span class="formlabel">Preparation Time:</span></label>
-                                    <textarea class="form-control" rows="1" id="preptime" name="text"></textarea>
+                                    <textarea class="form-control" rows="1" name="preptime"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="cookt"><span class="formlabel">Cooking Time:</span></label>
-                                    <textarea class="form-control" rows="1" id="cooktime" name="text"></textarea>
+                                    <textarea class="form-control" rows="1" name="cooktime"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="serv"><span class="formlabel">Serving:</span></label>
-                                    <textarea class="form-control" rows="1" id="serve" name="text"></textarea>
+                                    <textarea class="form-control" rows="1" name="serve"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="ingredients"><span class="formlabel">Ingredients:</span></label>
-                                    <textarea class="form-control" rows="5" id="ingre" name="text"></textarea>
+                                    <textarea class="form-control" rows="5" name="ingre"></textarea>
                                   </div>
                                   <div class="form-group">
                                     <label for="procedures"><span class="formlabel">Procedures:</span></label>
-                                    <textarea class="form-control" rows="5" id="proce" name="text"></textarea>
+                                    <textarea class="form-control" rows="5" name="proce"></textarea>
                                   </div>
                                   <div class="form-group">
                                     <label for="nutri"><span class="formlabel">Nutritional Value:</span></label>
-                                    <textarea class="form-control" rows="5" id="nutrval" name="text"></textarea>
+                                    <textarea class="form-control" rows="5" name="nutrval"></textarea>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="nutri"><span class="formlabel">Youtube Link Tutorial: (Right-click video and choose "Copy embed code")</span></label>
+                                    <textarea class="form-control" rows="1" name="ytlink"></textarea>
                                   </div>
                                 <button type="submit" class="btn" id="postbtn"><span class="posttxt">Post your Recipe</span></button>
                               </form>
@@ -184,6 +200,7 @@
 </body>
 </html>
 <?php
+    }
     } 
 else {
     header('location:index.php');

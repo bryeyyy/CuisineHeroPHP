@@ -59,11 +59,10 @@
             </div>
             <div class="row" id="bottom">
                 <div class="col-lg-12 text-center col-sm-12">
-                    <form action="Search/search.html" method="POST">
+                    <form action="Search/search.php">
                         <button type="submit" class="btn" id="searchbtn">
                             <span id="srch">Search Now</span>
                         </button>
-                        <!--babaguhin ung mema.html-->
                     </form>
                 </div>
             </div>
