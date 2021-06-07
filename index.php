@@ -121,6 +121,7 @@
                             <input type="password" id="pw2" placeholder="Confirm Password" autocomplete="false">
                             <br><span id="match"></span><br>
                         </div>
+                        <div id="tnctext">By Signing Up, You are agreeing with the site's <a href="#" data-toggle="modal" data-target="#TNC">Terms and Conditions</a></div>
                         <input type="submit" value="Sign-Up" id="block">
                     </form>
 
@@ -154,6 +155,19 @@
                     <span class="dialouge">Create an account?</span><button type="button" class="btn signinbtn" data-dismiss="modal"
                         data-toggle="modal" data-target="#Sign-Up"><span class="signbtntxt">Sign-Up</span></button>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="TNC">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable text-center">
+            <div class="modal-content" id="modal2">
+                <div class="modal-header">
+                    <p class="font-weight-bold">Terms and Conditions</p>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Terms and Conditions Here
+                </div>
         </div>
     </div>
 </div>
