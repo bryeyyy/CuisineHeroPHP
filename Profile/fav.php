@@ -13,17 +13,16 @@ while($row = $result->fetch_assoc()){
     $queryfav = "SELECT * FROM food WHERE food_id='$food_id'";
     $result1 = $con->query($queryfav);
         while($row1 = $result1->fetch_array()){
-            echo '<div class="card col-12 col-md-4">
-            <div class="dp">
-            <img src="images/'.$row1['authordp'].'">
-            </div>
-            <div class="usrnm">
-            <p>';
             $email1 = $row1['author'];
             $queryname = "SELECT * FROM acc WHERE email='$email1'";
             $result2 = $con->query($queryname);
             while ($row2 = $result2->fetch_array()){
-                echo ''.$row2['firstname'].' '.$row2['lastname'].'';
+                echo '<div class="card col-12 col-md-4">
+                <div class="dp">
+                <img src="images/'.$row2['dispic'].'">
+                </div>
+                <div class="usrnm">
+                <p>'.$row2['firstname'].' '.$row2['lastname'].'';
             }
             $result1 = $con->query($queryfav);
             while($row1 = $result1->fetch_array()){
