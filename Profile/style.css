@@ -192,7 +192,7 @@ cursor: pointer;
 .foodlabel{
     font-family: 'Raleway';
 }
-a:link,a:visited,a:hover,a:active{
+.card a:link,.card a:visited,.card a:hover,.card a:active{
     text-decoration: none;
     color: black;
 }
