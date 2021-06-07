@@ -85,8 +85,10 @@
                     <div id="recp" class="container tab-pane active">
                       test1
                     </div>
-                    <div id="fav" class="container tab-pane fade">
-                      test2
+                    <div id="fav" class="container-fluid tab-pane fade">
+                        <div class="row">
+                        <?php include 'fav.php'?>
+                        </div>
                     </div>
                     <div id="fol" class="container tab-pane fade">
                       test3
@@ -216,7 +218,6 @@
         $('.croppie-upload1').on('click', function (ev) {
             croppieDemo1.croppie('result', {
                 type: 'canvas',
-
                 size: {width:1000, height:250}
             }).then(function (image) {
                 var ext1 = $('#croppie-input1').val().split('.').pop().toLowerCase();

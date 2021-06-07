@@ -134,12 +134,63 @@ button.btn#Edit div{
     margin: 0;
     padding: 0; 
 }
+.card{
+    border: solid black;
+    height: max-content;
+    width: auto;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+-webkit-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+-moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+cursor: pointer;
+}
+.dp{
+    position: relative;
+    width:50px;
+    height:50px;
+    border: solid black;
+    border-radius: 25px;
+    overflow: hidden;
+    top: 25px;
+    margin-bottom: 50px;
+}
+.dp img{
+    max-width:100%;
+    max-height:100%;
+}
+.usrnm{
+    position: relative;
+    left: 65px;
+    top:-60px;
+}
+.usrnm p{
+    font-family: 'Krub';
+    font-size: 15px;
+}
+.foodpic{
+    margin-top:-50px;
+    margin-bottom:20px;
+    width:210px;
+    height: auto;
+    overflow: hidden;
+}
+.foodpic img{
+    max-width:100%;
+    max-height:100%;
+}
+.foodlabel{
+    font-family: 'Raleway';
+}
 @media screen and (max-width: 768px) {
     button.btn#Edit div{
         position: static;
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+    .foodpic{
+        width:auto;
     }
     .picban{
         right: 5px;

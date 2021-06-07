@@ -11,7 +11,7 @@ $con = mysqli_connect($server,$username,$password,$dbname);
 $sel = "SELECT * from like_log WHERE email='$email' AND food_id='1'";
 if($result = $con->query($sel)){
         $row = $result->fetch_assoc(); 
-        if(isset($row['liked'])){
+        if(isset($row['likes'])){
             echo '<button type="submit" class="btn like-btn liked" value="1"><img src="like.png"></button>';
         }
         else {

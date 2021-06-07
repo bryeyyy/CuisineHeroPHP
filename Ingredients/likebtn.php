@@ -17,7 +17,7 @@ $liked=$_POST['liked'];
 
 if(isset($email)){
 if(intval($liked) == 1){
-    $sel = "INSERT INTO `like_log` (`id`, `email`, `liked`, `food_id`) VALUES (NULL, '$email', '1', '1');";
+    $sel = "INSERT INTO `like_log` (`id`, `email`, `likes`, `food_id`) VALUES (NULL, '$email', '1', '1');";
     mysqli_query($con,$sel);
     $result = $con->query($queryf);
     $row = $result->fetch_assoc();
