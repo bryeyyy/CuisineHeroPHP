@@ -14,15 +14,17 @@ while($row = $result->fetch_assoc()){
     $result1 = $con->query($queryfav);
         while($row1 = $result1->fetch_array()){
             $email1 = $row1['author'];
+            echo '<div class="card col-12 col-md-4">
+            <a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
+            <div class="dp">';
             $queryname = "SELECT * FROM acc WHERE email='$email1'";
             $result2 = $con->query($queryname);
             while ($row2 = $result2->fetch_array()){
-                echo '<div class="card col-12 col-md-4">
-                <div class="dp">
-                <img src="images/'.$row2['dispic'].'">
-                </div>
-                <div class="usrnm">
-                <p>'.$row2['firstname'].' '.$row2['lastname'].'';
+            echo'
+            <img src="images/'.$row2['dispic'].'">
+            </div>
+            <div class="usrnm">
+            <p>'.$row2['firstname'].' '.$row2['lastname'].'';
             }
             $result1 = $con->query($queryfav);
             while($row1 = $result1->fetch_array()){
@@ -35,7 +37,12 @@ while($row = $result->fetch_assoc()){
             <h2>'.$row1['food_name'].'</h2>         
             <p>Date Posted: '.substr($row1['regdate'],0,16).'</p>
             </div>
-            </div>';
+            </a>
+            </div>
+            <form method="post" action="ingr-transfer.php"name="redirect" class="redirect">
+            <input type="hidden" class="post" name="post" value="">
+            <input type="submit" style="display: none;">
+            </form>';
             }
         }
     }

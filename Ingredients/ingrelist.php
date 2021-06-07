@@ -5,14 +5,13 @@ $server = "localhost";
 $username = "root";
 $password = "";
 $dbname = "food";
+$food_id = isset($_SESSION['food_id'])? $_SESSION['food_id'] : null;
 
 $con = mysqli_connect($server,$username,$password,$dbname);
-$queryf = "SELECT * FROM food WHERE food_id = 1";
-$querym = "SELECT * FROM meat WHERE food_id = 1";
-$queryv = "SELECT * FROM veggies WHERE food_id = 1";
-$queryc = "SELECT * FROM condiments WHERE food_id = 1";
-
-$_SESSION['food_id']=1;
+$queryf = "SELECT * FROM food WHERE food_id = '$food_id'";
+$querym = "SELECT * FROM meat WHERE food_id = '$food_id'";
+$queryv = "SELECT * FROM veggies WHERE food_id = '$food_id'";
+$queryc = "SELECT * FROM condiments WHERE food_id = '$food_id'";
 
 if ($result = $con->query($queryf)){ //Food Name
         $row = mysqli_fetch_array($result);

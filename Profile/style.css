@@ -145,6 +145,16 @@ button.btn#Edit div{
 -moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 cursor: pointer;
 }
+#bio{
+    overflow-wrap: break-word;
+}
+.biocon{
+    position: absolute;
+    left: 12vw;
+    width: 50vw;
+    height: 55px;
+    overflow: hidden;
+}
 .dp{
     position: relative;
     width:50px;
@@ -182,7 +192,17 @@ cursor: pointer;
 .foodlabel{
     font-family: 'Raleway';
 }
+a:link,a:visited,a:hover,a:active{
+    text-decoration: none;
+    color: black;
+}
 @media screen and (max-width: 768px) {
+    #bio{
+        position: static;
+    }
+    .biocon{
+        position: static;
+    }
     button.btn#Edit div{
         position: static;
         display: block;
@@ -194,7 +214,7 @@ cursor: pointer;
     }
     .picban{
         right: 5px;
-        width: 100%;
+        width: 99%;
         left: 0vw;
     }
     .tab1 a.active{

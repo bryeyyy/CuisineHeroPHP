@@ -82,8 +82,10 @@
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div id="recp" class="container tab-pane active">
-                      test1
+                    <div id="recp" class="container-fluid tab-pane active">
+                      <div class="row">
+                          <?php include 'recipe.php'?>
+                      </div>
                     </div>
                     <div id="fav" class="container-fluid tab-pane fade">
                         <div class="row">
@@ -130,6 +132,14 @@
               </div>
         </div>
         </div>
+        <form action="bio.php" method="POST">
+        <div class="form-group">
+            <label for="bio"><span class="formlabel">Bio:</span></label>
+            <textarea class="form-control char-len" rows="3" name="bio" maxlength="55"></textarea>
+            55 Characters Maximum
+        </div>
+        <input type="submit" value="Confirm Bio">
+        </form>
         <h1 style="text-align:center;">Account Settings</h1><br>
         <div class="row">
           <div class="col-12">
@@ -248,6 +258,11 @@
                $('#match').html('Not Matching').css('color', 'red');
                 $('#block').prop('disabled', true);
        }})
+        $(".link").click(function() {
+        var link = $(this).attr('var');
+        $('.post').attr("value",link);
+        $('.redirect').submit();
+        });
     </script>
 <?php 
     }
