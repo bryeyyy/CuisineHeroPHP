@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 07, 2021 at 04:56 PM
+-- Generation Time: Jun 07, 2021 at 08:06 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `acc` (
   `pass` varchar(30) NOT NULL,
   `banner` varchar(100) DEFAULT NULL,
   `dispic` varchar(100) NOT NULL,
+  `bio` text NOT NULL,
   `followno` int(10) NOT NULL,
   `recpno` int(10) NOT NULL,
   PRIMARY KEY (`id`)
@@ -46,17 +47,17 @@ CREATE TABLE IF NOT EXISTS `acc` (
 -- Dumping data for table `acc`
 --
 
-INSERT INTO `acc` (`id`, `firstname`, `lastname`, `email`, `pass`, `banner`, `dispic`, `followno`, `recpno`) VALUES
-(6, 'test4', 'test4', 'test4@gmail.com', '1', '1622461421.png', '1622462048.png', 0, 0),
-(7, 'testa', 'testa', 'testa@gmail.com', '1', '1622461284.png', '1622462048.png', 0, 0),
-(8, 'Reynaldo', 'Factor', 'factorjun0309@gmail.com', 'yeah', '1622620581.png', '1622620563.png', 0, 0),
-(9, 'testx', 'testx', 'testx@gmail.com', '1', 'defaultban.png', 'defaultdp.png', 0, 0),
-(10, 'Bryan', 'Baclili', 'test1@gmail.com', '1', 'defaultban.png', '1622593140.png', 0, 0),
-(11, 'testing', 'testing', 'testg@g.com', '1', '1622571182.png', '1622571168.png', 0, 0),
-(12, 'test', 'test', 't@g.com', '1', '1622623717.png', '1622623684.png', 0, 0),
-(13, 'aa', 'a', 'a@a', '1', 'defaultban.png', 'defaultdp.png', 0, 0),
-(14, 'CuisineHero', ' ', 'cuisinehero@gg.com', 'admin', '1623084420.png', '1623084421.png', 0, 0),
-(15, 'testx', 'a', 'a@g.com', '1', 'defaultban.png', 'defaultdp.png', 0, 0);
+INSERT INTO `acc` (`id`, `firstname`, `lastname`, `email`, `pass`, `banner`, `dispic`, `bio`, `followno`, `recpno`) VALUES
+(6, 'test4', 'test4', 'test4@gmail.com', '1', '1622461421.png', '1622462048.png', '', 0, 0),
+(7, 'testa', 'testa', 'testa@gmail.com', '1', '1622461284.png', '1622462048.png', '', 0, 0),
+(8, 'Reynaldo', 'Factor', 'factorjun0309@gmail.com', 'yeah', '1622620581.png', '1622620563.png', '', 0, 0),
+(9, 'testx', 'testx', 'testx@gmail.com', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0),
+(10, 'Bryan', 'Baclili', 'test1@gmail.com', '1', 'defaultban.png', '1622593140.png', '', 0, 0),
+(11, 'testing', 'testing', 'testg@g.com', '1', '1622571182.png', '1622571168.png', '', 0, 0),
+(12, 'test', 'test', 't@g.com', '1', '1622623717.png', '1622623684.png', '', 0, 0),
+(13, 'aa', 'a', 'a@a', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0),
+(14, 'CuisineHero', ' ', 'cuisinehero@gg.com', 'admin', '1623084420.png', '1623084421.png', '', 0, 0),
+(15, 'testx', 'a', 'a@g.com', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -112,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `food` (
 --
 
 INSERT INTO `food` (`food_id`, `author`, `food_name`, `food_img`, `cook_time`, `prep_time`, `video_link`, `proced`, `nutri_info`, `likes`, `regdate`) VALUES
-(1, 'cuisinehero@gg.com', 'Adobo', '1622392306.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/mtyULaM6RfQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure pag gawa ng adobo', 'nutri info ng adobo', 2, '2021-06-07 16:54:52'),
-(2, 'cuisinehero@gg.com', 'Nilaga', '1622391329.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 1, '2021-06-07 16:25:57');
+(1, 'cuisinehero@gg.com', 'Adobo', '1622392306.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/mtyULaM6RfQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure pag gawa ng adobo', 'nutri info ng adobo', 1, '2021-06-07 20:05:10'),
+(2, 'cuisinehero@gg.com', 'Nilaga', '1622391329.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 0, '2021-06-07 19:49:32');
 
 -- --------------------------------------------------------
 
@@ -185,15 +186,14 @@ CREATE TABLE IF NOT EXISTS `like_log` (
   `likes` int(1) NOT NULL,
   `food_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=132 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `like_log`
 --
 
 INSERT INTO `like_log` (`id`, `email`, `likes`, `food_id`) VALUES
-(111, 'cuisinehero@gg.com', 1, 2),
-(112, 'cuisinehero@gg.com', 1, 1),
+(131, 'cuisinehero@gg.com', 1, 1),
 (113, 'factorjun0309@gmail.com', 1, 1);
 
 -- --------------------------------------------------------
