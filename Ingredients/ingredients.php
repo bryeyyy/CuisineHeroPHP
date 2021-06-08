@@ -67,7 +67,7 @@
         <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="more.png"></button>
           <div class="dropdown-menu">
-              <button href="" class="dropdown-item like-btn dpup">Like</button>
+              <?php include 'qlikemobile.php'?>
               <button href="" class="dropdown-item dpup">Share</button>
               <button href="" class="dropdown-item dpup">Comment</button>
           </div>
