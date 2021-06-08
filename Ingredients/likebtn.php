@@ -1,4 +1,5 @@
 <?php
+session_start();
 $server = "localhost";
 $username = "root";
 $password = "";
@@ -10,6 +11,7 @@ if ($con->connect_error) {
 
 $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
 $food_id = isset($_SESSION['food_id'])? $_SESSION['food_id'] : null;
+echo $food_id;
 $queryf = "SELECT * from food WHERE food_id='$food_id'";
 
 $liked=$_POST['liked'];
