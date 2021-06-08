@@ -12,18 +12,7 @@ if ($result = $con->query($queryf)){
 while($row = $result->fetch_assoc()){
             echo '<div class="card col-12 col-md-4">
             <a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
-            <div class="dp">';
-            $result1 = $con->query($query);
-            while ($row1 = $result1->fetch_array()){
-            echo'
-            <img src="images/'.$row1['dispic'].'">
-            </div>
-            <div class="usrnm">
-            <p>'.$row1['firstname'].' '.$row1['lastname'].'';
-            }
-            echo '</p>
-            </div>
-            <div class="foodpic">
+            <div class="foodpic recp-tab">
             <img class="img-fluid" src="../Ingredients/Images/'.$row['food_img'].'">
             </div>
             <div class="foodlabel">

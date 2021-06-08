@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <title>CuisineHero |Ingredient</title>
@@ -53,7 +54,7 @@
               <div class="row">
                 <div class="col-12"><?php include 'qlike.php'?></div>
                 <div class="col-12"><button type="submit" class="btn"><img src="share.png"></button></div>
-                <div class="col-12"><button type="submit" class="btn"><img src="comment.png"></button></div>
+                <div class="col-12"><button type="submit" class="btn" data-toggle="modal" data-target="#Comment"><img src="comment.png"></button></div>
             </div></div>
           </div><br><br>
           <?php include 'ingrelist.php'?>
@@ -69,11 +70,32 @@
           <div class="dropdown-menu">
               <?php include 'qlikemobile.php'?>
               <button href="" class="dropdown-item dpup">Share</button>
-              <button href="" class="dropdown-item dpup">Comment</button>
+              <button href="" class="dropdown-item dpup" data-toggle="modal" data-target="#Comment">Comment</button>
           </div>
       </div>
     </div>
 </body> <br><br><br><br>
+<div class="modal fade" id="Comment">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content" id="modal2">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                <form method="POST" action="feed_files/recipemake.php">
+                <div class="form-group col-12">
+                    <textarea class="form-control" rows="2" name="comment" placeholder="Write a comment here..."></textarea>
+                    <input type="submit" value="Comment">
+                </div>
+                </form>
+                <?php include 'comments.php'?>
+                </div>
+                <div class="modal-footer justify-content-center" >
+                </div>
+        </div>
+    </div>
+</div>
 <footer>
     mga detalye natin
 </footer>

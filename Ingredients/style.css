@@ -134,4 +134,5 @@ iframe{
   }
 .icons{
     z-index: 1;
+    width: 0px;
 }
