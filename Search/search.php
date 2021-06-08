@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>CuisineHero |Search</title>
+<title>CuisineHero - Search</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
@@ -42,15 +42,15 @@
 <!--Need pala ng 2 case dito, pag logged in or not sa feed and Profile pala?-->
 <br><br><br>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" id="bodycontainer">
 <div class="row">
-<div class="col-12 col-md-6">
-<h1>Search</h1>
-<div class="row">
-<div class="col-12 col-md-3 d-none d-lg-block">
+<div class="col-12 col-md-6" id="searchtoolspane" >
+<h1 id="searchtitle">Search</h1>
+<div class="row btnrow">
+<div class="col-12 col-md-3 d-none d-lg-block" id="ingrbtn">
     <input type="button" class="btn ingr btn-outline-dark" value="Ingredients">
 </div>
-<div class="col-12 col-md-6 d-none d-lg-block"> 
+<div class="col-12 col-md-6 d-none d-lg-block"  id="recpbtn"> 
     <input type="button" class="btn recp btn-outline-dark" value="Recipe Name">
 </div>
 </div><br>
@@ -71,29 +71,53 @@
     <div class="col-12">
         <form action="" method="get" id="form">
             <div class="container-fluid">   
-            <div class="row">
+            <div class="row  text-center" id="searchquery">
             <input type="text" class="col-10" name="Search" id="" placeholder="Type your ingredient">
-            <a class="col-2" href="#" onclick="document.getElementById('form').submit()"> <img class="searchbtn" src="search.png"></a>
-        </div></div>
+            <a class="col-2" href="#" onclick="document.getElementById('form').submit()" id="srchbtn"></a>
+        </div>
+    </div>
         </form>
     </div>
     <div class="col-12">
         <div class="container-fluid">
         <div class="row pantry">
-        <h2 class="col-10">Your Pantry:</h2>
+        <h2 class="col-10" id="yrpantry">Your Pantry:</h2>
             <button class="btn d-lg-none dpdown1 col-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <img src="down-arrow.png">
             </button>
             <div class="collapse d-lg-none" id="collapseExample">
-                test1<!--JQ + DB Here-->
+                <!--JQ + DB Here-->
+                <div class="pantryitems">
+                    <ul>
+                    <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                        <li id="pantrying">  <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                    </ul>
+                </div>
             </div>
-        <!--JQ + DB Here-->
+        <!--JQ + DB Here, same sa pantryitems na nasa collapse-->
+        <div class="pantryitems d-none d-lg-block d-xl-block" id="pantryitems">
+                    <ul>
+                   
+                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                        <li id="pantrying">  <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                    </ul>
+        </div>
     </div>
     </div>
     </div>
-    <div class="col-12">
-        <h2>Smart Suggestions</h2>
-        <!--JQ + DB Here-->
+    <div class="col-12" id="smartsugg">
+        <h2>Smart Suggestions:</h2>
+        <div class="smartitems">
+            <div>
+                <ul>
+                    <!--JQ + DB Here-->
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 <div class="collapse recp1" data-parent="#accordion">
@@ -102,7 +126,7 @@
             <div class="container-fluid">   
             <div class="row">
             <input type="text" class="col-10" name="Search" id="" placeholder="Type the name of the Recipe">
-            <a class="col-2" href="#" onclick="document.getElementById('form').submit()"> <img class="searchbtn" src="search.png"></a>
+            <a class="col-2" href="#" onclick="document.getElementById('form').submit()" id="srchbtn"></a>
         </div></div>
         </form>
     </div>
@@ -110,37 +134,55 @@
 </div>
 </div>
 
-<div class="col-12 col-md-6">
-    <div class="container-fluid">
-    <h1>You can cook:</h1>
-    <div class="row">
-    <div class="card col-12 col-md-4">
-        <div class="card-body">Content</div>
-        <div class="card-footer">Footer</div>
+    <div class="col-12 col-md-6 d-flex justify-content-center" id="resultspane">
+        <div class="container-fluid">
+            <h1 id="youcancook" class="font-weight-bold">You can cook:</h1>
+                <div class="row" id="resultscard">
+                    <div class="card">
+                        <div class="imgcontainer">
+                            <img src="sample pic.jpg">
+                        </div>
+                                <div class="card-body texts">
+                                        <h3 class="card-title font-weight-bold">Mahabang mahabang food name</h3>
+                                        <p class="card-text">Username</p>
+                                        <p class="card-text">Date posted</p> 
+                                </div>  
+                </div>
+                <div class="card">
+                        <div class="imgcontainer">
+                            <img src="sample pic.jpg">
+                        </div>
+                                <div class="card-body texts">
+                                        <h3 class="card-title font-weight-bold">Mahabang mahabang food name</h3>
+                                        <p class="card-text">Username</p>
+                                        <p class="card-text">Date posted</p> 
+                                </div>  
+                </div>
+                <div class="card">
+                        <div class="imgcontainer">
+                            <img src="sample pic.jpg">
+                        </div>
+                                <div class="card-body texts">
+                                        <h3 class="card-title font-weight-bold">Mahabang mahabang food name</h3>
+                                        <p class="card-text">Username</p>
+                                        <p class="card-text">Date posted</p> 
+                                </div>  
+                </div>
+            <!--Bali ung isang card i aappend nalang no need for conf-->
+        </div>
     </div>
-    <div class="card col-12 col-md-4">
-        <div class="card-body">Content</div>
-        <div class="card-footer">Footer</div>
-    </div>
-    <div class="card col-12 col-md-4">
-        <div class="card-body">Content</div>
-        <div class="card-footer">Footer</div>
-    </div>
-    <div class="card col-12 col-md-4">
-        <div class="card-body">Content</div>
-        <div class="card-footer">Footer</div>
-    </div>
-    <div class="card col-12 col-md-4">
-        <div class="card-body">Content</div>
-        <div class="card-footer">Footer</div>
-    </div>
-    <!--Bali ung isang card i aappend nalang no need for conf-->
 </div>
 </div>
 </div>
-</div></div>
 </body>
 </html>
+<script>
+    var li = document.getElementById('pantrying');
+    function delet() {
+        li.remove();
+               //need mawala sa db, idk how eh HAHAHAH
+            }
+</script>
 <script>
     $(document).ready(function(){
     $(".select").html('Ingredients');
