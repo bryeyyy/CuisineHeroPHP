@@ -3,7 +3,7 @@ $server = "localhost";
 $username = "root";
 $password = "";
 $dbname = "food";
-$email = isset($_SESSION['email'])? $_SESSION['email'] : null;
+$email = isset($_SESSION['author'])? $_SESSION['author'] : null;
 
 $con = mysqli_connect($server,$username,$password,$dbname);
 $query = "SELECT * FROM like_log WHERE email = '$email' ORDER By id Desc";
@@ -15,13 +15,12 @@ while($row = $result->fetch_assoc()){
         while($row1 = $result1->fetch_array()){
             $email1 = $row1['author'];
             echo '<div class="card col-12 col-md-4">
-            <a href="javascript:void(0)" class="link1" var="'.$row1['author'].'">
             <div class="dp">';
             $queryname = "SELECT * FROM acc WHERE email='$email1'";
             $result2 = $con->query($queryname);
             while ($row2 = $result2->fetch_array()){
             echo'
-            <img src="images/'.$row2['dispic'].'">
+            <img src="../images/'.$row2['dispic'].'">
             </div>
             <div class="usrnm">
             <p>'.$row2['firstname'].' '.$row2['lastname'].'';
@@ -30,10 +29,9 @@ while($row = $result->fetch_assoc()){
             while($row1 = $result1->fetch_array()){
             echo '</p>
             </div>
-            </a>
             <a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
             <div class="foodpic">
-            <img class="img-fluid" src="../Ingredients/Images/'.$row1['food_img'].'">
+            <img class="img-fluid" src="../../Ingredients/Images/'.$row1['food_img'].'">
             </div>
             <div class="foodlabel">
             <h2>'.$row1['food_name'].'</h2>         
@@ -43,10 +41,6 @@ while($row = $result->fetch_assoc()){
             </div>
             <form method="post" action="ingr-transfer.php"name="redirect" class="redirect">
             <input type="hidden" class="post" name="post" value="">
-            <input type="submit" style="display: none;">
-            </form>
-            <form method="post" action="../feed_files/to-profile.php" name="redirect1" class="redirect1">
-            <input type="hidden" class="post1" name="post1" value="">
             <input type="submit" style="display: none;">
             </form>';
             }

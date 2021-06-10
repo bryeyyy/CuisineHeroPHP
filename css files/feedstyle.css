@@ -213,6 +213,30 @@ cursor: pointer;
     text-decoration: none;
     color: black;
 }
+/*icons*/
+
+.icon-containers img{
+    display: block;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+}
+img[src="Ingredients/like.png"]{
+    filter: invert(50%);
+}
+.like-btn img{
+    display: block;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+}
+.liked img[src="Ingredients/like.png"]{
+
+    filter: invert(0%);
+}
+.icons{
+    margin: 1px auto;
+}
 @media (max-width: 1295px) {
     .card{
         margin: 0px;

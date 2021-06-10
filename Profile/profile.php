@@ -263,6 +263,11 @@
         $('.post').attr("value",link);
         $('.redirect').submit();
         });
+        $(".link1").click(function() {
+        var link = $(this).attr('var');
+        $('.post1').attr("value",link);
+        $('.redirect1').submit();
+        });
     </script>
 <?php 
     }
