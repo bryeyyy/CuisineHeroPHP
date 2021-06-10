@@ -97,37 +97,7 @@
                             <div class="row">
                                 <!--this is where the posts will go-->
                                 <div class="posts">
-                                    <?php include 'feed_files/Post.php'?>
-                                    <div class="card onclick="location.href='#';">
-                                        <div class="dp"> <!--profile picture-->
-                                            <img src="Images/sample pic.jpg">
-                                        </div> 
-                                        <div class="usrnm"> <!--username-->
-                                            <p>Username</p>
-                                        </div>
-                                        <div class="foodpic">
-                                            <img class="img-fluid" src="Images/sample pic.jpg">
-                                        </div>
-                                        <div class="foodlabel">
-                                            <h2>Food Stuff</h2>         
-                                            <p>Date posted</p>
-                                        </div>
-                                    </div>
-                                    <div class="card onclick="location.href='#';">
-                                        <div class="dp"> <!--profile picture-->
-                                            <img src="Images/sample pic.jpg">
-                                        </div> 
-                                        <div class="usrnm"> <!--username-->
-                                            <p>Username</p>
-                                        </div>
-                                        <div class="foodpic"> <!--picture ng pagkain-->
-                                            <img src="Images/sample pic.jpg">
-                                        </div>
-                                        <div class="foodlabel"> <!--label ng pagkain-->
-                                            <h2>Food Stuff</h2>
-                                            <p>Date posted</p> 
-                                        </div>
-                                    </div>   
+                                    <?php include 'feed_files/Post.php'?>  
                                 </div>
                                 </div>
                             </div>

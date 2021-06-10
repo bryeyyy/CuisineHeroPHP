@@ -78,6 +78,8 @@
     height: max-content;
 }
 #mainsec{
+    display: block;
+    margin: auto;
     height: 81vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -154,6 +156,18 @@
 -moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 cursor: pointer;
 }
+.card{
+    border: solid black;
+    height: max-content;
+    width: auto;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+-webkit-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+-moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
+cursor: pointer;
+    margin-left:30px ;
+}
 .dp{
     position: relative;
     width:50px;
@@ -173,6 +187,10 @@ cursor: pointer;
     left: 65px;
     top:-60px;
 }
+.post{
+    display: block;
+    margin: auto;
+}
 .usrnm p{
     font-family: 'Krub';
     font-size: 15px;
@@ -180,7 +198,7 @@ cursor: pointer;
 .foodpic{
     margin-top:-50px;
     margin-bottom:20px;
-    width:500px;
+    width:auto;
     height: auto;
     overflow: hidden;
 }
@@ -196,9 +214,8 @@ cursor: pointer;
     color: black;
 }
 @media (max-width: 1295px) {
-    .foodpic{
-        width:40vw;
-        height:auto;
+    .card{
+        margin: 0px;
     }
 }
 .community{
