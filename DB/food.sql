@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 07, 2021 at 08:06 PM
+-- Generation Time: Jun 10, 2021 at 02:54 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -56,8 +56,33 @@ INSERT INTO `acc` (`id`, `firstname`, `lastname`, `email`, `pass`, `banner`, `di
 (11, 'testing', 'testing', 'testg@g.com', '1', '1622571182.png', '1622571168.png', '', 0, 0),
 (12, 'test', 'test', 't@g.com', '1', '1622623717.png', '1622623684.png', '', 0, 0),
 (13, 'aa', 'a', 'a@a', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0),
-(14, 'CuisineHero', ' ', 'cuisinehero@gg.com', 'admin', '1623084420.png', '1623084421.png', '', 0, 0),
+(14, 'CuisineHero', ' ', 'cuisinehero@gg.com', 'admin', '1623084420.png', '1623084421.png', '', 0, 2),
 (15, 'testx', 'a', 'a@g.com', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL,
+  `food_id` int(30) NOT NULL,
+  `comment` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `email`, `food_id`, `comment`, `date`) VALUES
+(7, 'factorjun0309@gmail.com', 1, 'yeat', '2021-06-10 11:34:38'),
+(8, 'factorjun0309@gmail.com', 1, 'tesst', '2021-06-10 11:34:49'),
+(10, 'factorjun0309@gmail.com', 1, 'testing lang', '2021-06-10 11:42:18');
 
 -- --------------------------------------------------------
 
@@ -104,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `food` (
   `proced` text NOT NULL,
   `nutri_info` text NOT NULL,
   `likes` int(10) NOT NULL,
-  `regdate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `regdate` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`food_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -113,8 +138,8 @@ CREATE TABLE IF NOT EXISTS `food` (
 --
 
 INSERT INTO `food` (`food_id`, `author`, `food_name`, `food_img`, `cook_time`, `prep_time`, `video_link`, `proced`, `nutri_info`, `likes`, `regdate`) VALUES
-(1, 'cuisinehero@gg.com', 'Adobo', '1622392306.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/mtyULaM6RfQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure pag gawa ng adobo', 'nutri info ng adobo', 1, '2021-06-07 20:05:10'),
-(2, 'cuisinehero@gg.com', 'Nilaga', '1622391329.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 0, '2021-06-07 19:49:32');
+(1, 'cuisinehero@gg.com', 'Adobo', '1622392306.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/mtyULaM6RfQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure pag gawa ng adobo', 'nutri info ng adobo', 2, '2021-06-10 09:31:29'),
+(2, 'cuisinehero@gg.com', 'Nilaga', '1622391329.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 1, '2021-06-10 09:30:13');
 
 -- --------------------------------------------------------
 
@@ -186,15 +211,16 @@ CREATE TABLE IF NOT EXISTS `like_log` (
   `likes` int(1) NOT NULL,
   `food_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=132 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `like_log`
 --
 
 INSERT INTO `like_log` (`id`, `email`, `likes`, `food_id`) VALUES
-(131, 'cuisinehero@gg.com', 1, 1),
-(113, 'factorjun0309@gmail.com', 1, 1);
+(153, 'cuisinehero@gg.com', 1, 1),
+(152, 'factorjun0309@gmail.com', 1, 2),
+(151, 'factorjun0309@gmail.com', 1, 1);
 
 -- --------------------------------------------------------
 
