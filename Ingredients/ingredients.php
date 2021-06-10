@@ -76,20 +76,16 @@
     </div>
 </body> <br><br><br><br>
 <div class="modal fade" id="Comment">
-        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-centered modal-md  modal-dialog-scrollable">
             <div class="modal-content" id="modal2">
                 <div class="modal-header">
-
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <div class="modal-body">
-                <form method="POST" action="feed_files/recipemake.php">
-                <div class="form-group col-12">
-                    <textarea class="form-control" rows="2" name="comment" placeholder="Write a comment here..."></textarea>
-                    <input type="submit" value="Comment">
-                </div>
-                </form>
-                <?php include 'comments.php'?>
+                <div class="modal-body"><form action="comment.php" method="POST">
+                    <textarea class="form-control comments" rows="2" name="comment" placeholder="Write a comment here..." required></textarea>
+                    <button class="comment-btn">Submit</button>
+                    </form>
+                    <?php include 'disp-cmnt.php'?>
                 </div>
                 <div class="modal-footer justify-content-center" >
                 </div>
@@ -100,7 +96,14 @@
     mga detalye natin
 </footer>
 </html>
-<?php if (isset($email)){echo"
+<?php
+if(isset($_SESSION['rel'])){
+  echo "<script>
+  $('#Comment').modal('show');
+  </script>";
+  unset($_SESSION['rel']);
+}
+if (isset($email)){echo"
 <script>
   $('.like-btn').click(function(){
     if($('.like-btn').val() == 1){

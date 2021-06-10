@@ -10,7 +10,7 @@
     justify-content: space-between;
     width: 100%;
     min-height: 8vh;
-    z-index: 9998;
+    z-index: 1000;
     align-items: center;
     margin:auto;
     top: 0;
@@ -113,6 +113,57 @@ iframe{
     width: 40vw;
     max-height: 400px;
 }
+.icons{
+    z-index: 1;
+    width: 0px;
+}
+button.comment-btn{ /*comment button*/
+    display: block;
+    margin-left: auto;
+}
+.dp{
+    position: relative;
+    width:50px;
+    height: 50px;
+    border: solid black;
+    border-radius: 25px;
+    overflow: hidden;
+}
+.dp img{
+    max-width:100%;
+    max-height:100%;
+}
+.usrnm{
+    position: relative;
+    left: 65px;
+    bottom: 50px;
+    width: 330px;
+}
+.card{
+    padding: 10px;
+}
+.usrnm h4{
+    font-family: 'Krub';
+    width: 300px;
+}
+button.del-com{
+    position: absolute;
+    display: block;
+    border-radius: 25px;
+    width: 25px;
+    height: 25px;
+    margin: auto;
+    left: 340px;
+    bottom: 40px;
+}
+button.del-com div{
+    position: absolute;
+    left: 7px;
+    bottom: 0px;
+}
+.modal{
+    z-index: 9998;
+}
 @media screen and (max-width: 768px) {
     .foodImg{
         overflow: hidden;
@@ -131,8 +182,7 @@ iframe{
         margin: auto;
         display: block;
     }
+    button.del-com{
+        left: 300px;
+    }
   }
-.icons{
-    z-index: 1;
-    width: 0px;
-}

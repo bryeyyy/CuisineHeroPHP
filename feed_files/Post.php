@@ -6,7 +6,7 @@ $dbname = "food";
 $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
 
 $con = mysqli_connect($server,$username,$password,$dbname);
-$query = "SELECT * FROM like_log WHERE email = '$email' ORDER By id Desc";
+$query = "SELECT * FROM food ORDER BY regdate Desc";
 if ($result = $con->query($query)){
 while($row = $result->fetch_assoc()){
     $food_id = $row['food_id'];
@@ -14,13 +14,13 @@ while($row = $result->fetch_assoc()){
     $result1 = $con->query($queryfav);
         while($row1 = $result1->fetch_array()){
             $email1 = $row1['author'];
-            echo '<div class="card col-12 col-md-4">
+            echo '<div class="card col-12">
             <div class="dp">';
             $queryname = "SELECT * FROM acc WHERE email='$email1'";
             $result2 = $con->query($queryname);
             while ($row2 = $result2->fetch_array()){
             echo'
-            <img src="images/'.$row2['dispic'].'">
+            <img src="Profile/images/'.$row2['dispic'].'">
             </div>
             <div class="usrnm">
             <p>'.$row2['firstname'].' '.$row2['lastname'].'';
@@ -31,7 +31,7 @@ while($row = $result->fetch_assoc()){
             </div>
             <a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
             <div class="foodpic">
-            <img class="img-fluid" src="../Ingredients/Images/'.$row1['food_img'].'">
+            <img class="img-fluid" src="Ingredients/Images/'.$row1['food_img'].'">
             </div>
             <div class="foodlabel">
             <h2>'.$row1['food_name'].'</h2>         
@@ -39,7 +39,7 @@ while($row = $result->fetch_assoc()){
             </div>
             </a>
             </div>
-            <form method="post" action="ingr-transfer.php"name="redirect" class="redirect">
+            <form method="post" action="Profile/ingr-transfer.php"name="redirect" class="redirect">
             <input type="hidden" class="post" name="post" value="">
             <input type="submit" style="display: none;">
             </form>';

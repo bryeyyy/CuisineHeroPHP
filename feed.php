@@ -93,8 +93,11 @@
                                 </div>   
                             </div>
                             <div class="col-lg-6 d-sm-12 d-flex justify-content-center" id="mainsec">
+                            <div class="container-fluid">
+                            <div class="row">
                                 <!--this is where the posts will go-->
                                 <div class="posts">
+                                    <?php include 'feed_files/Post.php'?>
                                     <div class="card onclick="location.href='#';">
                                         <div class="dp"> <!--profile picture-->
                                             <img src="Images/sample pic.jpg">
@@ -126,6 +129,8 @@
                                         </div>
                                     </div>   
                                 </div>
+                                </div>
+                            </div>
                             </div>
                             <div class="col-lg-3 d-none d-lg-block d-xl-block text-center" id="thirdsec">
                                 <div class="community">
@@ -199,6 +204,12 @@
             </div>    
 </body>
 </html>
+<script>
+$(".link").click(function() {
+var link = $(this).attr('var');
+$('.post').attr("value",link);
+$('.redirect').submit();
+});</script>
 <?php
     }
     } 
