@@ -10,7 +10,7 @@ list(, $data) = explode(',', $data);
 $data = base64_decode($data);
 $imageName = time().'.png';
 file_put_contents('Images/'.$imageName, $data);
-$sql = "UPDATE food SET food_img='$imageName' WHERE food_id='1'";//edit crop image
+$sql = "UPDATE food SET food_img='$imageName' WHERE food_id='2'";//edit crop image
 mysqli_query($db, $sql);
 if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
     $msg = "Image uploaded successfully";

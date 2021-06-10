@@ -14,7 +14,7 @@ while($row = $result->fetch_assoc()){
     $result1 = $con->query($queryfav);
         while($row1 = $result1->fetch_array()){
             $email1 = $row1['author'];
-            echo '<div class="card col-12">
+            echo '<div class="card">
             <div class="dp">';
             $queryname = "SELECT * FROM acc WHERE email='$email1'";
             $result2 = $con->query($queryname);

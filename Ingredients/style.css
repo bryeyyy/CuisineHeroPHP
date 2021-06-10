@@ -109,9 +109,9 @@ iframe{
 }
 #foodImg{
     position: absolute;
-    top: 200px;
-    width: 40vw;
-    max-height: 400px;
+    top: 100px;
+    padding: 0px;
+    margin: 0px;
 }
 .icons{
     z-index: 1;
@@ -165,11 +165,17 @@ button.del-com div{
     z-index: 9998;
 }
 @media screen and (max-width: 768px) {
+    .adjust{
+        margin-top: -60px;
+    }
     .foodImg{
+        position: relative;
         overflow: hidden;
-        margin-top:20px;
-        width: 500px;
-        height: 300px;
+        width: 100vw;
+        height: 65vh;
+        padding: 0px;
+        box-sizing: content-box;
+        bottom: 70px;
     }
     .dropdown-menu .like-btn.liked{
         background-color: black;
@@ -177,12 +183,21 @@ button.del-com div{
     }
     #foodImg{
         position: static;
-        width: 500px;
-        height: 100vh;
+        width: 100vw;
+        height: auto;
         margin: auto;
         display: block;
+        margin: 0px;
     }
     button.del-com{
-        left: 300px;
+        right: 50px;
+    }
+    iframe{
+        position: relative;
+        width: 95vw;
+        height: auto;
+        padding: 0px;
+        margin: 0px;
+        box-sizing: content-box;
     }
   }

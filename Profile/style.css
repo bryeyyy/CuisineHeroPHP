@@ -220,8 +220,9 @@ cursor: pointer;
     }
     .picban{
         right: 5px;
-        width: 99%;
-        left: 0vw;
+        width: 100%;
+        left: -15px;
+        box-sizing: content-box;
     }
     .tab1 a.active{
         border-top: 0px none !important;
@@ -254,7 +255,7 @@ cursor: pointer;
         margin: auto;
     }
     .spacing{
-        margin-top: 0;
+        margin-top: 0px;
         border-top: 0px;
         width: 500px;
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 10, 2021 at 02:54 PM
+-- Generation Time: Jun 10, 2021 at 04:32 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -81,8 +81,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 
 INSERT INTO `comments` (`id`, `email`, `food_id`, `comment`, `date`) VALUES
 (7, 'factorjun0309@gmail.com', 1, 'yeat', '2021-06-10 11:34:38'),
-(8, 'factorjun0309@gmail.com', 1, 'tesst', '2021-06-10 11:34:49'),
-(10, 'factorjun0309@gmail.com', 1, 'testing lang', '2021-06-10 11:42:18');
+(8, 'factorjun0309@gmail.com', 1, 'tesst', '2021-06-10 11:34:49');
 
 -- --------------------------------------------------------
 
@@ -138,8 +137,8 @@ CREATE TABLE IF NOT EXISTS `food` (
 --
 
 INSERT INTO `food` (`food_id`, `author`, `food_name`, `food_img`, `cook_time`, `prep_time`, `video_link`, `proced`, `nutri_info`, `likes`, `regdate`) VALUES
-(1, 'cuisinehero@gg.com', 'Adobo', '1622392306.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/mtyULaM6RfQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure pag gawa ng adobo', 'nutri info ng adobo', 2, '2021-06-10 09:31:29'),
-(2, 'cuisinehero@gg.com', 'Nilaga', '1622391329.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 1, '2021-06-10 09:30:13');
+(1, 'cuisinehero@gg.com', 'Adobo', '1623338444.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/mtyULaM6RfQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure pag gawa ng adobo', 'nutri info ng adobo', 2, '2021-06-10 09:31:29'),
+(2, 'cuisinehero@gg.com', 'Nilaga', '1623341763.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 1, '2021-06-10 09:30:13');
 
 -- --------------------------------------------------------
 

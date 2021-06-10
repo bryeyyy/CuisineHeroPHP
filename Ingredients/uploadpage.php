@@ -28,8 +28,8 @@
         var croppieDemo = $('#croppie-demo').croppie({
             enableOrientation: true,
             viewport: {
-                width: 600,
-                height: 400,
+                width: 400,
+                height: 550,
             },
             boundary: {
                 width: 700,
