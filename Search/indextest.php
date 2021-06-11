@@ -62,7 +62,7 @@
         <div class="column">
     	<!--<form action="search.php" method="post">-->
     		<input type="text" name ="txtIng" placeholder="Search ingredients..." id="searchBox" autocomplete="off">
-    		<div id="response"></div>
+    		<div id="response" style="position: absolute; background-color:white;"></div>
         </div>
 
         <div class="column">
@@ -96,6 +96,9 @@
                                 dataType: 'text'
                             }
                         );
+                    }
+                    else{
+                        $("#response").html("");
                     }
                 });
                 $(document).on('click', 'li', function () {
