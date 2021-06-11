@@ -159,14 +159,14 @@
     </div>
 </div>
 <div class="modal fade" id="TNC">
-        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable text-center">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable text-center">
             <div class="modal-content" id="modal2">
                 <div class="modal-header">
                     <p class="font-weight-bold">Terms and Conditions</p>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    Terms and Conditions Here
+                    <iframe src="DB/TnC-Priv.php" frameborder="2" width="700px"></iframe>
                 </div>
         </div>
     </div>

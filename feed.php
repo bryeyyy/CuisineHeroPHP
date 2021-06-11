@@ -105,25 +105,8 @@
                             <div class="col-lg-3 d-none d-lg-block d-xl-block text-center" id="thirdsec">
                                 <div class="community">
                                     <div class="comcard ">
-                                        <h3>Recommended Buddies</h3>
-                                        <div class="personcard justify-content-center onclick="location.href='#';" style="cursor: pointer;""> <!--per user ito na recommended-->
-                                            <p class="usrnm2">Username</p>
-                                            <div class="dp2">
-                                                <img src="Images/sample pic.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="personcard onclick="location.href='#';" style="cursor: pointer;""> <!--per user ito na recommended-->
-                                            <p class="usrnm2">Username</p>
-                                            <div class="dp2">
-                                                <img src="Images/sample pic.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="personcard onclick="location.href='#';" style="cursor: pointer;""> <!--per user ito na recommended--> 
-                                            <p class="usrnm2">Username</p>
-                                            <div class="dp2">
-                                                <img src="Images/sample pic.jpg">
-                                            </div>
-                                        </div>
+                                        <h3>Recommended Follows</h3>
+                                        <?php include 'feed_files/reco-fol.php'?>
                                     </div>
                                 </div>
                             </div>

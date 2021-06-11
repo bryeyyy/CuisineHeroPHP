@@ -1,6 +1,10 @@
 <?php
     session_start();
-    if(isset($_SESSION['firstname']) && isset($_SESSION['email'])){
+    if($_SESSION['email']==$_SESSION['author']){
+      header('location:../profile.php');
+      exit();
+    }
+    else if(isset($_SESSION['firstname']) && isset($_SESSION['email'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,7 @@
       <div class="container-fluid" id="banner1">
           <a class="navbar-brand" href="#"><img src="../../Images\logo white.png"></a>
           <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-              <img src="../Images\burjer.png" width="30" height="20">
+              <img src="../../Images\burjer.png" width="30" height="20">
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav ml-auto">
@@ -54,6 +58,11 @@
 
 <body>
   <?php include 'prof2.php'?>
+  <div class="row">
+<div class="col-12 Editbtn">
+      <?php include 'qfollow.php'?>
+    <!--<button type="button" class="btn follow-btn"><div>Follow</div></button>-->
+</div></div>
 <div class="container-fluid spacing" id="hey">
                 <div class="row">
                     <div class="col-12 text-center" id="buffer">
@@ -69,13 +78,13 @@
                             </li></ul>
                             <ul class="nav nav-tabs justify-content-center" role="tablist">
                             <li class="nav-item tab1 d-md-none">
-                              <a class="nav-link active" data-toggle="tab" href="#recp"><img width="25px" src="icons/chef-hat.png"></a>
+                              <a class="nav-link active" data-toggle="tab" href="#recp"><img width="25px" src="../icons/chef-hat.png"></a>
                             </li>
                             <li class="nav-item tab1 d-md-none">
-                              <a class="nav-link" data-toggle="tab" href="#fav"><img width="25px" src="icons/like.png"></a>
+                              <a class="nav-link" data-toggle="tab" href="#fav"><img width="25px" src="../icons/like.png"></a>
                             </li>
                             <li class="nav-item tab1 d-md-none">
-                              <a class="nav-link" data-toggle="tab" href="#fol"><img width="25px" src="icons/friends.png"></a>
+                              <a class="nav-link" data-toggle="tab" href="#fol"><img width="25px" src="../icons/friends.png"></a>
                             </li>
                         </ul>
                     </div>
@@ -92,12 +101,41 @@
                         </div>
                     </div>
                     <div id="fol" class="container tab-pane fade">
-                      test3
+                        <div class="row">
+                          <?php include 'following-visit.php'?>
+                        </div>
                     </div>
                 </div>
 </div></div></div>
 </body>
 </html>
+<script>
+  $('.follow-btn').click(function(){
+    if($('.follow-btn').val() == 1){
+      $('.follow-btn').removeClass('followed');
+      $('.follow-btn div').html('Follow');
+      $('.follow-btn').val(0);
+      $.post('followbtn.php', {followed: '-1'});
+    }
+    else
+    {
+      $('.follow-btn').addClass('followed');
+      $('.follow-btn div').html('Followed');
+      $('.follow-btn').val(1);
+      $.post('followbtn.php', {followed: '1'});
+    }
+  });
+        $(".link").click(function() {
+        var link = $(this).attr('var');
+        $('.post').attr("value",link);
+        $('.redirect').submit();
+        });
+        $(".link1").click(function() {
+        var link1 = $(this).attr('var');
+        $('.post1').attr("value",link1);
+        $('.redirect1').submit();
+        });
+</script>
 <?php 
     }
     else{

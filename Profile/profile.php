@@ -93,7 +93,9 @@
                         </div>
                     </div>
                     <div id="fol" class="container tab-pane fade">
-                      test3
+                        <div class="row">
+                            <?php include 'following.php'?>
+                        </div>
                     </div>
                 </div>
 </div></div></div>
@@ -150,6 +152,16 @@
         </form>
         <div id="match"></div>
         </div></div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <h3>Delete Account</h3>
+                <form action="del-acc.php" method="POST">
+                    <input type="text" name="del-acc" id="del-acc" placeholder="Type CONFIRM to delete your account." required>
+                    <input id="block1" type="submit" value="Confirm Delete Account">
+                </form>
+            </div>
+        </div>
             </div>
     </div></div></div></div>
 </html>
@@ -258,14 +270,22 @@
                $('#match').html('Not Matching').css('color', 'red');
                 $('#block').prop('disabled', true);
        }})
+       $('#block1').prop('disabled', true);
+        $('#del-acc').on('keyup', function () {
+        if ($('#del-acc').val() == "CONFIRM" && $('#del-acc').val().length > 0){
+                $('#block1').prop('disabled', false);
+        }
+        else{
+                $('#block1').prop('disabled', true);
+       }})
         $(".link").click(function() {
         var link = $(this).attr('var');
         $('.post').attr("value",link);
         $('.redirect').submit();
         });
         $(".link1").click(function() {
-        var link = $(this).attr('var');
-        $('.post1').attr("value",link);
+        var link1 = $(this).attr('var');
+        $('.post1').attr("value",link1);
         $('.redirect1').submit();
         });
     </script>

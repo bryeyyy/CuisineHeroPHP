@@ -15,6 +15,7 @@ while($row = $result->fetch_assoc()){
         while($row1 = $result1->fetch_array()){
             $email1 = $row1['author'];
             echo '<div class="card col-12 col-md-4">
+            <a href="javascript:void(0)" class="link1" var="'.$row1['author'].'">
             <div class="dp">';
             $queryname = "SELECT * FROM acc WHERE email='$email1'";
             $result2 = $con->query($queryname);
@@ -28,7 +29,7 @@ while($row = $result->fetch_assoc()){
             $result1 = $con->query($queryfav);
             while($row1 = $result1->fetch_array()){
             echo '</p>
-            </div>
+            </div></a>
             <a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
             <div class="foodpic">
             <img class="img-fluid" src="../../Ingredients/Images/'.$row1['food_img'].'">
@@ -39,8 +40,12 @@ while($row = $result->fetch_assoc()){
             </div>
             </a>
             </div>
-            <form method="post" action="ingr-transfer.php"name="redirect" class="redirect">
+            <form method="post" action="../ingr-transfer.php"name="redirect" class="redirect">
             <input type="hidden" class="post" name="post" value="">
+            <input type="submit" style="display: none;">
+            </form>
+            <form method="post" action="../../feed_files/to-profile.php" name="redirect1" class="redirect1">
+            <input type="hidden" class="post1" name="post1" value="">
             <input type="submit" style="display: none;">
             </form>';
             }

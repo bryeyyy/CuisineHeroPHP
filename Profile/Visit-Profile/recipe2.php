@@ -21,7 +21,7 @@ while($row = $result->fetch_assoc()){
             </div>
             </a>
             </div>
-            <form method="post" action="ingr-transfer.php"name="redirect" class="redirect">
+            <form method="post" action="../ingr-transfer.php"name="redirect" class="redirect">
             <input type="hidden" class="post" name="post" value="">
             <input type="submit" style="display: none;">
             </form>';
