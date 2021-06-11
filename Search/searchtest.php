@@ -53,7 +53,10 @@
             	}$prevID = $row["food_id"];
             }
       	}
-      	else{echo 'No recipe found with this ingredient!';}
+      	else{echo '<div class="text-center" style="position:relative; width:max-content; height:max-content; top:50px; left:150px;">
+				<img style="width:auto; height:250px;" src="https://media.giphy.com/media/e1BaXMrzPgNjOgDXwG/giphy.gif">
+				<p style="font-size:30px;"> No Recipes Found :( </p>
+			</div>';}
 		  echo'<script>
 		  $(".link").click(function() {
 		  var link = $(this).attr("var");

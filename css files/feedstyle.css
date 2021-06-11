@@ -65,7 +65,9 @@
     color: white;
 }
 
-
+.tab-content{
+    width: 100%;
+}
 #sec2{
     height:70vh;
     transition: ease .8s;
@@ -146,27 +148,24 @@
     transition: ease .8s;
 }
 .card{
-    border: solid black;
+    transition:  0.5s ease;
+    border: solid black 1PX;
     height: max-content;
     width: auto;
     padding:20px;
-    margin-bottom:20px;
+    margin-bottom:20px !important;
     box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 -webkit-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 -moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 cursor: pointer;
 }
-.card{
-    border: solid black;
-    height: max-content;
-    width: auto;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
--webkit-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
--moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
-cursor: pointer;
-    margin-left:30px ;
+.card:hover{
+    box-shadow: 14px 14px 44px -21px rgba(0,0,0,0.89);
+-webkit-box-shadow: 14px 14px 44px -21px rgba(0,0,0,0.89);
+-moz-box-shadow: 14px 14px 44px -21px rgba(0,0,0,0.89);
+    border: none;
+    background: rgb(72,222,71);
+background: linear-gradient(340deg, rgba(72,222,71,1) 0%, rgba(127,218,145,1) 49%, rgba(0,212,255,1) 100%);
 }
 .dp{
     position: relative;
@@ -272,6 +271,12 @@ img[src="Ingredients/like.png"]{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition:ease 0.8s;
+}
+.personcard:hover{
+    background-color: black;
+    color: white;
+    border: solid black;
 }
 .dp2{
     position: absolute;

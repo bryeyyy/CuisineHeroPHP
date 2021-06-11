@@ -1,6 +1,8 @@
 <?php
 	if (isset($_POST['search'])) {
-		$response = "<ul>No data found!</ul>";
+		$response = "<ul class='nores font-weight-bold'>No Ingredients found :( <br>
+            <img src='empty-cart.png'>
+            </ul>";
 
 		$connection = new mysqli('localhost', 'root', '', 'food');
 		$q = $connection->real_escape_string($_POST['q']);
@@ -67,6 +69,7 @@
 <!--Need pala ng 2 case dito, pag logged in or not sa feed and Profile pala?-->
 <br><br><br>
 <body>
+
 <div class="container-fluid" id="bodycontainer">
 <div class="row">
 <div class="col-12 col-md-6" id="searchtoolspane" >
@@ -136,7 +139,7 @@
             <div class="container-fluid">   
             <div class="row">
             <input type="text" class="col-10" name="Search" id="" placeholder="Type the name of the Recipe">
-            <a class="col-2" href="#" id="srchbtn"></a>
+            <a class="col-2" href="#" id="srchbtn2"></a>
         </div></div>
         </form>
     </div>
@@ -155,6 +158,7 @@
 </div>
 </div>
 </body>
+
 </html>
 
 <script>
@@ -244,3 +248,4 @@ $(".dpdown1").click(function(){
                 }); 
             });
 </script>
+
