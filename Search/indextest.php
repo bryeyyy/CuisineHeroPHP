@@ -1,6 +1,6 @@
 <?php
 	if (isset($_POST['search'])) {
-		$response = "<ul><li>No data found!</li></ul>";
+		$response = "<ul>No data found!</ul>";
 
 		$connection = new mysqli('localhost', 'root', '', 'food');
 		$q = $connection->real_escape_string($_POST['q']);
@@ -20,13 +20,12 @@
 			$response .= "</ul>";
 		}
 
-
 		exit($response);
 	}
 ?>
 <html>
     <head>
-        <title>CuisineHero| Search</title>
+        <title>Searching - Ing</title>
         <style type="text/css">
             ul {
                 float: left;
@@ -44,14 +43,39 @@
                 color: silver;
                 background: #0088cc;
             }
+
+            .column {
+             float: left;
+             width: 50%;
+             padding: 10px;
+            }
+
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
         </style>
     </head>
     <body>
-    	<form action="search1.php" method="post">
-    		<input type="text" name ="txtIng" placeholder="Search ingredients..." id="searchBox" autocomplete="off"><input type="submit" name="btnSubmit" value="Submit">
+    <div class="row">
+        <div class="column">
+    	<!--<form action="search.php" method="post">-->
+    		<input type="text" name ="txtIng" placeholder="Search ingredients..." id="searchBox" autocomplete="off">
     		<div id="response"></div>
-    	</form>
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        </div>
+
+        <div class="column">
+            <table id="myIngs" border=1>
+                <tr><th>My ingredients</th></tr>
+            </table>
+            <p></p>
+             <input type="submit" id="btnRec" value="Submit">
+        </div>
+        <div id="list"></div>
+        <!--</form>-->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $("#searchBox").keyup(function () {
@@ -60,7 +84,7 @@
                     if (query.length > 0) {
                         $.ajax(
                             {
-                                url: 'index.php',
+                                url: 'indextest.php',
                                 method: 'POST',
                                 data: {
                                     search: 1,
@@ -74,13 +98,32 @@
                         );
                     }
                 });
-
                 $(document).on('click', 'li', function () {
-                    var ingr = $(this).text();
-                    $("#searchBox").val(ingr);
-                    $("#response").html("");
+                    var recipe = $(this).text();
+                    $('#myIngs').append('<tr><td>'+recipe+'</td></tr>');
                 });
+
+                $("#btnRec").click(function(){
+                    var ingArray = [];
+                    $("table#myIngs tr").each(function() {
+                        var rowArray = [];
+                        var tableData = $(this).find('td');
+                        if (tableData.length > 0) {
+                            tableData.each(function() { rowArray.push($(this).text()); });
+                            ingArray.push(rowArray); 
+                        }
+                    });
+                    $.ajax({ 
+                        url: "searchtest.php", 
+                        type: "POST", 
+                        data: { 'ingArray' : ingArray}, 
+                        success: function(data) {   
+                                $("#list").html(data);
+                            } 
+                    });
+                }); 
             });
         </script>
     </body>
 </html>
+

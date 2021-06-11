@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 10, 2021 at 04:32 PM
+-- Generation Time: Jun 11, 2021 at 08:52 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -48,15 +48,10 @@ CREATE TABLE IF NOT EXISTS `acc` (
 --
 
 INSERT INTO `acc` (`id`, `firstname`, `lastname`, `email`, `pass`, `banner`, `dispic`, `bio`, `followno`, `recpno`) VALUES
-(6, 'test4', 'test4', 'test4@gmail.com', '1', '1622461421.png', '1622462048.png', '', 0, 0),
-(7, 'testa', 'testa', 'testa@gmail.com', '1', '1622461284.png', '1622462048.png', '', 0, 0),
 (8, 'Reynaldo', 'Factor', 'factorjun0309@gmail.com', 'yeah', '1622620581.png', '1622620563.png', '', 0, 0),
 (9, 'testx', 'testx', 'testx@gmail.com', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0),
-(10, 'Bryan', 'Baclili', 'test1@gmail.com', '1', 'defaultban.png', '1622593140.png', '', 0, 0),
-(11, 'testing', 'testing', 'testg@g.com', '1', '1622571182.png', '1622571168.png', '', 0, 0),
-(12, 'test', 'test', 't@g.com', '1', '1622623717.png', '1622623684.png', '', 0, 0),
 (13, 'aa', 'a', 'a@a', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0),
-(14, 'CuisineHero', ' ', 'cuisinehero@gg.com', 'admin', '1623084420.png', '1623084421.png', '', 0, 2),
+(14, 'CuisineHero', ' ', 'cuisinehero@gg.com', 'admin', '1623084420.png', '1623084421.png', '', 2, 2),
 (15, 'testx', 'a', 'a@g.com', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0);
 
 -- --------------------------------------------------------
@@ -113,6 +108,28 @@ INSERT INTO `condiments` (`condi_id`, `condi_name`, `condi_amt`, `food_id`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `follow_log`
+--
+
+DROP TABLE IF EXISTS `follow_log`;
+CREATE TABLE IF NOT EXISTS `follow_log` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(30) NOT NULL,
+  `author` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `follow_log`
+--
+
+INSERT INTO `follow_log` (`id`, `email`, `author`) VALUES
+(41, 'factorjun0309@gmail.com', 'cuisinehero@gg.com'),
+(28, 'a@g.com', 'cuisinehero@gg.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `food`
 --
 
@@ -138,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `food` (
 
 INSERT INTO `food` (`food_id`, `author`, `food_name`, `food_img`, `cook_time`, `prep_time`, `video_link`, `proced`, `nutri_info`, `likes`, `regdate`) VALUES
 (1, 'cuisinehero@gg.com', 'Adobo', '1623338444.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/mtyULaM6RfQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure pag gawa ng adobo', 'nutri info ng adobo', 2, '2021-06-10 09:31:29'),
-(2, 'cuisinehero@gg.com', 'Nilaga', '1623341763.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 1, '2021-06-10 09:30:13');
+(2, 'cuisinehero@gg.com', 'Nilaga', '1623341763.png', '', '', '<iframe width=\"950\" height=\"534\" src=\"https://www.youtube.com/embed/CDFsyd92ezU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'procedure ng pag gawa ng nilaga', 'nutri info ng nilaga', 2, '2021-06-10 09:30:13');
 
 -- --------------------------------------------------------
 
@@ -210,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `like_log` (
   `likes` int(1) NOT NULL,
   `food_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `like_log`
@@ -218,8 +235,9 @@ CREATE TABLE IF NOT EXISTS `like_log` (
 
 INSERT INTO `like_log` (`id`, `email`, `likes`, `food_id`) VALUES
 (153, 'cuisinehero@gg.com', 1, 1),
-(152, 'factorjun0309@gmail.com', 1, 2),
-(151, 'factorjun0309@gmail.com', 1, 1);
+(159, 'factorjun0309@gmail.com', 1, 2),
+(158, 'factorjun0309@gmail.com', 1, 1),
+(160, 'a@g.com', 1, 2);
 
 -- --------------------------------------------------------
 
