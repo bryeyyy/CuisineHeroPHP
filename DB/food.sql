@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 11, 2021 at 08:52 AM
+-- Generation Time: Jun 11, 2021 at 03:11 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `acc` (
 --
 
 INSERT INTO `acc` (`id`, `firstname`, `lastname`, `email`, `pass`, `banner`, `dispic`, `bio`, `followno`, `recpno`) VALUES
-(8, 'Reynaldo', 'Factor', 'factorjun0309@gmail.com', 'yeah', '1622620581.png', '1622620563.png', '', 0, 0),
+(8, 'Reynaldo', 'Factor', 'factorjun0309@gmail.com', 'yeah', '1622620581.png', '1622620563.png', '', 1, 0),
 (9, 'testx', 'testx', 'testx@gmail.com', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0),
 (13, 'aa', 'a', 'a@a', '1', 'defaultban.png', 'defaultdp.png', '', 0, 0),
 (14, 'CuisineHero', ' ', 'cuisinehero@gg.com', 'admin', '1623084420.png', '1623084421.png', '', 2, 2),
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `follow_log` (
   `email` varchar(30) NOT NULL,
   `author` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `follow_log`
@@ -125,7 +125,8 @@ CREATE TABLE IF NOT EXISTS `follow_log` (
 
 INSERT INTO `follow_log` (`id`, `email`, `author`) VALUES
 (41, 'factorjun0309@gmail.com', 'cuisinehero@gg.com'),
-(28, 'a@g.com', 'cuisinehero@gg.com');
+(28, 'a@g.com', 'cuisinehero@gg.com'),
+(42, 'cuisinehero@gg.com', 'factorjun0309@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,6 @@ INSERT INTO `ingredients_all` (`id`, `ing_name`) VALUES
 (3, 'Potatoes'),
 (7, 'Salt'),
 (6, 'Tomatoes'),
-(8, 'Pepper'),
 (9, 'Paprika'),
 (10, 'Soy Sauce'),
 (11, 'Fish Sauce'),
@@ -195,11 +195,6 @@ INSERT INTO `ingredients_all` (`id`, `ing_name`) VALUES
 (20, 'Chicken'),
 (21, 'Tofu'),
 (22, 'Shrimp'),
-(23, 'Tomatoes'),
-(24, 'Salt'),
-(25, 'Pepper'),
-(26, 'Paprika'),
-(27, 'Soy Sauce'),
 (28, 'Fish Sauce'),
 (29, 'Vinegar'),
 (30, 'Dried Basil'),
