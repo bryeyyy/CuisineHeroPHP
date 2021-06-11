@@ -5,7 +5,7 @@
 		$dbname = "food";
 
 		$con = mysqli_connect($server,$username,$password,$dbname);
-
+		if(isset($_POST['ingArray'])){
 		$ingsArray=$_POST["ingArray"];
 		$ing = array_merge(...$ingsArray);
 		$ings = "'".implode("','", $ing)."'";
@@ -27,9 +27,39 @@
             	if($prevID == $fID){
             		$fID = '';}
             	else{
-            		echo '</br>Recipe:  '.$fName.' by <b>'.$fAuthor.'</b></br>';
+					$queryname = "SELECT * FROM acc WHERE email='$fAuthor'";
+					$result2 = $con->query($queryname);
+					while ($row2 = $result2->fetch_array()){
+					$firstname= $row2['firstname'];
+					$lastname = $row2['lastname'];
+					}
+					echo '
+					<div class="card">
+					<a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
+					<div class="imgcontainer">
+						<img src="../Ingredients/Images/'.$row['food_img'].'">
+					</div>
+							<div class="card-body texts">
+									<h3 class="card-title font-weight-bold">'.$row['food_name'].'</h3>
+									<p class="card-text">'.$firstname.' '.$lastname.'</p>
+									<p class="card-text">'.substr($row['regdate'],0,16).'</p> 
+							</div>  
+							</a>
+					</div>
+					<form method="post" action="../Profile/ingr-transfer.php"name="redirect" class="redirect">
+					<input type="hidden" class="post" name="post" value="">
+					<input type="submit" style="display: none;">
+					</form>';
             	}$prevID = $row["food_id"];
             }
       	}
       	else{echo 'No recipe found with this ingredient!';}
+		  echo'<script>
+		  $(".link").click(function() {
+		  var link = $(this).attr("var");
+		  $(".post").attr("value",link);
+		  $(".redirect").submit();
+		  });
+		  </script>';
+	}
 ?>

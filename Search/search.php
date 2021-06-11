@@ -1,3 +1,28 @@
+<?php
+	if (isset($_POST['search'])) {
+		$response = "<ul>No data found!</ul>";
+
+		$connection = new mysqli('localhost', 'root', '', 'food');
+		$q = $connection->real_escape_string($_POST['q']);
+
+		$sql = $connection->query("SELECT * FROM ingredients_all
+				WHERE ing_name LIKE '%$q%'");
+
+		if ($sql->num_rows > 0) {
+			$response = "<ul>";
+			$prevIng = false;
+			while ($data = $sql->fetch_assoc()){
+				$ingName = $data['ing_name'];
+				if($prevIng == $ingName){$ingName = ' ';}
+            	else{$response .= "<li class='ing-list'>" .$ingName. "</li>";}
+            	$prevIng = $data['ing_name'];
+			}
+			$response .= "</ul>";
+		}
+
+		exit($response);
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <title>CuisineHero - Search</title>
@@ -69,14 +94,13 @@
 <div class="row" id="accordion">
 <div class="collapse ingre1 show" data-parent="#accordion">
     <div class="col-12">
-        <form action="" method="get" id="form">
             <div class="container-fluid">   
             <div class="row  text-center" id="searchquery">
-            <input type="text" class="col-10" name="Search" id="" placeholder="Type your ingredient">
-            <a class="col-2" href="#" onclick="document.getElementById('form').submit()" id="srchbtn"></a>
+            <input type="text" id="searchBox" class="col-10" name="Search" placeholder="Type your ingredient">
+            <a class="col-2" href="#" id="srchbtn"></a>
         </div>
     </div>
-        </form>
+        <div id="response"></div>
     </div>
     <div class="col-12">
         <div class="container-fluid">
@@ -85,48 +109,34 @@
             <button class="btn d-lg-none dpdown1 col-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <img src="down-arrow.png">
             </button>
-            <div class="collapse d-lg-none" id="collapseExample">
+            <div id="collapseExample">
                 <!--JQ + DB Here-->
                 <div class="pantryitems">
-                    <ul>
-                    <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
-                        <li id="pantrying">  <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
-                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
-                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
+                    <ul class="myIngs"><!--INGREDIENTS HERE-->
                     </ul>
                 </div>
             </div>
-        <!--JQ + DB Here, same sa pantryitems na nasa collapse-->
-        <div class="pantryitems d-none d-lg-block d-xl-block" id="pantryitems">
-                    <ul>
-                   
-                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
-                        <li id="pantrying">  <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
-                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
-                        <li id="pantrying"> <button type="button" class="btn delbtn" onClick ="delet()">&#10006;</button> Ingredient </li>
-                    </ul>
-        </div>
     </div>
     </div>
     </div>
-    <div class="col-12" id="smartsugg">
+    <!--<div class="col-12" id="smartsugg">
         <h2>Smart Suggestions:</h2>
         <div class="smartitems">
             <div>
                 <ul>
-                    <!--JQ + DB Here-->
+                    <--JQ + DB Here-- Drop muna to :V
                 </ul>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 <div class="collapse recp1" data-parent="#accordion">
     <div class="col-12">
-        <form action="" method="get" id="form">
+
             <div class="container-fluid">   
             <div class="row">
             <input type="text" class="col-10" name="Search" id="" placeholder="Type the name of the Recipe">
-            <a class="col-2" href="#" onclick="document.getElementById('form').submit()" id="srchbtn"></a>
+            <a class="col-2" href="#" id="srchbtn"></a>
         </div></div>
         </form>
     </div>
@@ -137,37 +147,7 @@
     <div class="col-12 col-md-6 d-flex justify-content-center" id="resultspane">
         <div class="container-fluid">
             <h1 id="youcancook" class="font-weight-bold">You can cook:</h1>
-                <div class="row" id="resultscard">
-                    <div class="card">
-                        <div class="imgcontainer">
-                            <img src="sample pic.jpg">
-                        </div>
-                                <div class="card-body texts">
-                                        <h3 class="card-title font-weight-bold">Mahabang mahabang food name</h3>
-                                        <p class="card-text">Username</p>
-                                        <p class="card-text">Date posted</p> 
-                                </div>  
-                </div>
-                <div class="card">
-                        <div class="imgcontainer">
-                            <img src="sample pic.jpg">
-                        </div>
-                                <div class="card-body texts">
-                                        <h3 class="card-title font-weight-bold">Mahabang mahabang food name</h3>
-                                        <p class="card-text">Username</p>
-                                        <p class="card-text">Date posted</p> 
-                                </div>  
-                </div>
-                <div class="card">
-                        <div class="imgcontainer">
-                            <img src="sample pic.jpg">
-                        </div>
-                                <div class="card-body texts">
-                                        <h3 class="card-title font-weight-bold">Mahabang mahabang food name</h3>
-                                        <p class="card-text">Username</p>
-                                        <p class="card-text">Date posted</p> 
-                                </div>  
-                </div>
+                <div class="row" id="list">
             <!--Bali ung isang card i aappend nalang no need for conf-->
         </div>
     </div>
@@ -176,14 +156,11 @@
 </div>
 </body>
 </html>
+
 <script>
-    var li = document.getElementById('pantrying');
-    function delet() {
-        li.remove();
-               //need mawala sa db, idk how eh HAHAHAH
-            }
-</script>
-<script>
+$(document).on('click', 'button.delbtn', function() {
+  $(this).closest('li').remove();
+});
     $(document).ready(function(){
     $(".select").html('Ingredients');
 });
@@ -215,4 +192,55 @@ $(document).ready(function(){
 $(".dpdown1").click(function(){
   $(".dpdown1").toggleClass("downarrow");
 });
+            $(document).ready(function () {
+                $("#searchBox").keyup(function () {
+                    var query = $("#searchBox").val();
+
+                    if (query.length > 0) {
+                        $.ajax(
+                            {
+                                url: 'search.php',
+                                method: 'POST',
+                                data: {
+                                    search: 1,
+                                    q: query
+                                },
+                                success: function (data) {
+                                    $("#response").html(data);
+                                },
+                                dataType: 'text'
+                            }
+                        );
+                    }
+                    else{
+                        $("#response").html("");
+                    }
+                });
+
+                $(document).on('click', 'li.ing-list', function () {
+                    var recipe = $(this).text();
+                        $('.myIngs').append('<li><button type="button" class="btn delbtn">&#10006;</button><span>'+recipe+'</span></li>');
+
+                });
+
+                $("#srchbtn").click(function(){
+                    var ingArray = [];
+                    $("ul.myIngs li").each(function() {
+                        var rowArray = [];
+                        var tableData = $(this).find('span');
+                        if (tableData.length > 0) {
+                            tableData.each(function() { rowArray.push($(this).text()); });
+                            ingArray.push(rowArray); 
+                        }
+                    });
+                    $.ajax({ 
+                        url: "searchtest.php", 
+                        type: "POST",
+                        data: { 'ingArray' : ingArray}, 
+                        success: function(data) {   
+                                $("#list").html(data);
+                            } 
+                    });
+                }); 
+            });
 </script>

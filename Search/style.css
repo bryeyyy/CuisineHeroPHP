@@ -194,3 +194,17 @@ div button.dpdown1 img{
 .texts{
     font-family: 'Raleway';
 }
+#response ul li{ /*DITO ung search results*/ 
+    text-indent: 20px;
+    list-style-type: none;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid grey;
+}
+#response ul li:hover{
+    filter: invert(100%);
+}
+#response{
+    width: 25vw;
+}
