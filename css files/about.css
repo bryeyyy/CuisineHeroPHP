@@ -4,6 +4,40 @@
     box-sizing: border-box; 
     scroll-behavior: smooth;
 }
+body{
+    transition: background-color 2s ease;
+    cursor: none;
+}
+.cursor{
+    width: 5vw;
+    height: 5vw;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+    transition: .3s ease;
+    transition-property: transform, filter;
+    transform-origin: 100% 100%;
+}
+.select{
+    transform: scale(3);
+    backdrop-filter: invert(100%);
+}
+.select2{
+    transform: scale(1);
+    border: solid yellow 2px;
+}
+.color-violet{
+    background-color: #14a15b;
+}
+.color-black{
+    background-color: black;
+}
+.color-three{
+    background-color: rgb(51, 142, 184);
+}
 /* navbar */
 #banner{
     position: fixed;
@@ -19,6 +53,7 @@
     margin:auto;
     top: 0;
     transition: ease 0.8s;
+    color: white;
 }
 .navbar-center {
     position: absolute;
@@ -43,13 +78,164 @@
     width: 50px;
     height: 50px;
 }
-
+.row{
+    border: solid red 2px;
+}
 #row1{
+    position: relative;
     height: 100vh;
-    border: solid black;
+    color:rgb(255, 255, 255);
+    overflow: hidden;
+    transition: transform 0.1s ease-out;
+}
+.title{
+    font-family:'Raleway';
+    font-size:15vw;
+    
+}
+.animtext{
+    font-family:'Krub';
+    filter: opacity(0.2);
+    text-align: justify;
+    animation: animation2 50s linear infinite;
+}
+.animtext2{
+    font-size:2.5vw;
+    font-family:'Krub';
+    filter: opacity(0.15);
+    text-align: justify;
+    animation: animation1 50s ease infinite;
+}
+@keyframes animation1{
+    0%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+@keyframes animation2{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+.lerp{
+    top: -650px;
+    position: absolute;
+    z-index:5;
+    transform: translateX(7.0%) translateY(-50%);
+    transition: ease .8s;
+}
+@media (max-width: 992px) {
+    .lerp{
+        top: -450px;
+        transform: translateX(5.0%) translateY(-50%);
+    }
+  }
+  @media (max-width: 768px) {
+    .lerp{
+        top:-400px;
+        transform: translateX(5%) translateY(-50%);
+    }
+  }
+.lerp span{
+    display: inline-block;
 }
 #row2{
     height: 100vh;
-    border: solid yellow;
-    font-size:  3vw;
+    overflow: hidden;
+}
+.ques{
+   position: relative;
+}
+.ques h1{
+    font-family:'Krub';
+    color: white;
+    font-size:10vw;
+    margin-bottom: 100px;
+}
+#name{
+    font-family:'Raleway';
+}
+.logopic{
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    filter: opacity(0.2);
+    z-index: -100;
+    top: -1.0%;
+    left:50%;
+}
+.logopic img{
+    width: 100%;
+    height:100%;
+    -webkit-animation: rotation 60s infinite linear;
+}
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
+.ans{
+    color: white;
+    padding-right: 100px;
+    padding-left: 100px;
+    text-align: justify;
+    margin-top:-50px;
+}
+@media (max-width: 768px) {
+    .ans p{
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 12px;
+    }
+    .ques h1{
+        text-align: center;
+        transform: translateX(-5.0%) translateY(0%);
+    }
+  }
+ 
+#row3{
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.ques2{
+    margin-right: -100px;
+}
+.ques2 h1{
+    font-family:'Krub';
+    color: white;
+    font-size:10vw;
+    margin-bottom: 100px;
+}
+.emojis{
+    position: absolute;
+    transform:translate(-50%,-50%);
+    pointer-events: none;
+    font-size: 50px;
+}
+.hw{
+    margin-top: -100px;
+    text-align: center;
+    
+}
+.hw h1{
+    font-family:'Source Code Pro';
+    font-size: 10vw;
+}
+.hw p{
+    font-family:'Source Code Pro';
+    font-size: 2vw;
+}
+#row4{
+    height: 100vh;
+    overflow: hidden;
 }

@@ -47,7 +47,7 @@
                         <a class="nav-link" href="Profile/profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="DB/Logout.php">Logout</a>
@@ -94,7 +94,7 @@
                             </div>
                             <div class="col-lg-6 d-sm-12 d-flex justify-content-center" id="mainsec">
                             <div class="container-fluid">
-                            <div class="row">
+                            <div class="row d-flex justify-content-center">
                                 <!--this is where the posts will go-->
                                 <div class="posts">
                                     <?php include 'feed_files/Post.php'?>  
