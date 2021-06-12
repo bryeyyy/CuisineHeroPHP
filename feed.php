@@ -132,8 +132,44 @@
                                     <textarea class="form-control" rows="1" name="serve"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="ingredients"><span class="formlabel">Ingredients:</span></label>
-                                    <textarea class="form-control" rows="5" name="ingre"></textarea>
+                                    <label for="ingredients"><span class="formlabel">Ingredients:</span></label><br>
+                                    <div class="container-fluid">
+                                    <div class="row">
+                                    <div class="col-md-6 col-12">
+                                    <h5 id="Ing-categ"></h5>
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Categories <!--Dito ung Ingredients-->
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Meat</a>
+                                        <a class="dropdown-item" href="#">Fish/Seafood</a>
+                                        <a class="dropdown-item" href="#">Oil/Liquid</a>
+                                        <a class="dropdown-item" href="#">Vegetables</a>
+                                        <a class="dropdown-item" href="#">Fruits</a>
+                                        <a class="dropdown-item" href="#">Spice/Seasonings/Sweeteners</a>
+                                        <a class="dropdown-item" href="#">Dairy</a>
+                                        <a class="dropdown-item" href="#">Dessert/Snacks</a>
+                                        <a class="dropdown-item" href="#">Condiments</a>
+                                        <a class="dropdown-item" href="#">Soup/Sauces</a>
+                                        <a class="dropdown-item" href="#">Nuts/Legumes</a>
+                                        <a class="dropdown-item" href="#">Baking & Grains</a>
+                                    </div>
+                                    </div>
+                                    <input type="text" placeholder="Name of Ingredient" id="name-Ing"><br><br>
+                                    <span>Example: 1 kg</span>
+                                    <input type="text" placeholder="Amount" id="amt-Ing">
+                                    <a id="add-Ing" href="#name-Ing">Add</a>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        List of Ingredients:
+                                        <div class="container-fluid">
+                                            <div class="row app-Ings"><!--Ingredients will go here-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                  </div>
                                   </div>
                                   <div class="form-group">
                                     <label for="procedures"><span class="formlabel">Procedures:</span></label>
@@ -167,7 +203,73 @@ $(".link1").click(function() {
 var link = $(this).attr('var');
 $('.post1').attr("value",link);
 $('.redirect1').submit();
-});</script>
+});
+
+$(document).on('click', 'a.dropdown-item', function () {
+    var category = $(this).text();
+    $('#Ing-categ').html(category);
+});
+$(document).on('click', 'a#add-Ing', function () {
+    var category = $('h5#Ing-categ').text();
+    var cl_categ;
+    if(category.length == 4){
+        cl_categ = 'meat';
+    }
+    else if(category.length == 12){
+        if (category == 'Fish/Seafood'){
+            cl_categ = 'fish';
+        }
+        else{
+            cl_categ = 'nuts';
+        }
+    }
+    else if (category.length == 10){
+        if (category == 'Oil/Liquid'){
+            cl_categ = 'oil';
+        }
+        else if (category == 'Vegetables'){
+            cl_categ = 'veg';
+        }
+        else {
+            cl_categ = 'condi';
+        }
+    }
+    else if (category.length == 6){
+        cl_categ ='fruit';
+    }
+    else if (category.length == 27){
+        cl_categ ='spice';
+    }
+    else if (category.length == 5){
+        cl_categ ='dairy';
+    }
+    else if (category.length == 14){
+        cl_categ = 'dessert';
+    }
+    else if (category.length == 11){
+        cl_categ = 'soup';
+    }
+    else if (category.length == 15){
+        cl_categ = 'bake';
+    }
+    else{
+        cl_categ = null;
+        alert('Please pick a category');
+    }
+    var ing = $('#name-Ing').val();
+    var ing_amt = $('#amt-Ing').val();
+    if(ing.length>0 && ing_amt.length>0 && cl_categ.length>0){
+        $('.app-Ings').append('<mema><button type="button" class="btn delbtn col-12 col-md-1">&#10006;</button><span class ="col-md-4 col-12">'+category+'</span><span class ="categs col-md-3 col-12 '+cl_categ+'">'+ing+'</span><span class="col-md-3 col-12 amt-'+cl_categ+'">'+ing_amt+'</span></mema>');
+    }//Dito ung appending ingredients
+    else {
+        alert('Please fill-up the name of ingredient and the amount.');
+    }
+    $(document).on('click', 'button.delbtn', function() {
+  $(this).closest('mema').remove();
+});
+});
+</script>
+
 <?php
     }
     } 

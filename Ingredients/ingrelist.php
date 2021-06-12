@@ -1,5 +1,4 @@
-<html>
-<body>
+
 <?php 
 $server = "localhost";
 $username = "root";
@@ -83,33 +82,29 @@ if($result = $con->query($queryc)){
       </div>';
     }
   }
+if($result = $con->query($queryf)){
+while($row = $result->fetch_assoc()){
+  $procedure = $row["proced"];
+  $nutri_info = $row["nutri_info"];
+  $vid_link = $row["video_link"];
   echo '<h2 class="col-12 Ingredient-Title">
         Procedures
-        </h2>';
-  $result = $con->query($queryf);
-  $row = $result->fetch_assoc();
-  $procedure = $row["proced"];
-  echo '<div class="col-12 Indention-Ing">
-  - '.$procedure.'
-  </div>';
+        </h2><div class="col-12 Indention-Ing">
+  - '.$procedure.'</div>';
+  if($nutri_info!== null){
   echo '<h2 class="col-12 Ingredient-Title">
         Nutritional Information
-        </h2>';
-  $result = $con->query($queryf);
-  $row = $result->fetch_assoc();
-  $nutri_info = $row["nutri_info"];
-  echo '<div class="col-12 Indention-Ing">
-  - '.$nutri_info.'
-  </div>';
+        </h2><div class="col-12 Indention-Ing">
+  - '.$nutri_info.'</div>';
+  }
   echo '</div></div></div>
   <div class="container-fluid">
   <div class="row">
-  <div class="col-1 d-none d-md-block"></div>
-  <div class="col-md-6 col-12">';
-  $result = $con->query($queryf);
-  $row = $result->fetch_assoc();
-  $vid_link = $row["video_link"];
-  echo $vid_link;
+  <div class="col-1 d-none d-md-block"></div>';
+  if(isset($vid_link))
+  echo '<div class="col-md-6 col-12">'.$vid_link.'';
+}
+}
   echo '</div><div class="col-12 col-lg-5"><h2 class="Ingredient-Title">You might also like...</h2>
         <div class="container-fluid">
         <div class="row">';
@@ -119,5 +114,3 @@ if($result = $con->query($queryc)){
         </div></div></div></div></div></div>';//Dito ung suggested recipes
 }
 ?>
-</body>
-</html>
