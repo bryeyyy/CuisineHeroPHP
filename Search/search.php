@@ -267,7 +267,7 @@ $(".dpdown1").click(function(){
                         }
                     });
                     $.ajax({ 
-                        url: "searchtest.php", 
+                        url: "searchIng.php", 
                         type: "POST",
                         data: { 'ingArray' : ingArray}, 
                         success: function(data) {   
