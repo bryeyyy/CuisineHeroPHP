@@ -307,3 +307,14 @@ div button.dpdown1 img{
 .card a:hover{
     color: white;
 }
+
+#startsplash{
+    position: absolute;
+    text-align: center;
+    transform: translate(50%, 20%);
+    font-family:'Krub';
+}
+#startsplash img{
+    width: auto;
+    height: 300px;
+}

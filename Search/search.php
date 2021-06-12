@@ -178,7 +178,10 @@
         <div class="container-fluid">
             <h1 id="youcancook" class="font-weight-bold">You can cook:</h1>
                 <div class="row" id="list">
-                    DITO UNG STARTING
+                    <div id="startsplash">
+                        <img src="https://media.giphy.com/media/cJYy5eegnMXuaDybIR/giphy.gif">
+                        <h1>Start Searching!</h1>
+                    </div>
             <!--Bali ung isang card i aappend nalang no need for conf-->
         </div>
     </div>
@@ -246,16 +249,13 @@ $(".dpdown1").click(function(){
                     }
                     else{
                         $("#response").html("");
-                        $("#list").html("test Ingredients"); //pwede lagyan ng div class dito like <div>test</div>
+                        $("#list").html('<div id="startsplash"><img src="https://media.giphy.com/media/cJYy5eegnMXuaDybIR/giphy.gif"><h1>Start Searching!</h1></div>'); //pwede lagyan ng div class dito like <div>test</div>
                     }
                 });
-
                 $(document).on('click', 'li.ing-list', function () {
                     var recipe = $(this).text();
                         $('.myIngs').append('<li><button type="button" class="btn delbtn">&#10006;</button><span>'+recipe+'</span></li>');
-
                 });
-
                 $("#srchbtn").click(function(){
                     var ingArray = [];
                     $("ul.myIngs li").each(function() {

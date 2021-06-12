@@ -138,7 +138,7 @@
         <div class="form-group">
             <label for="bio"><span class="formlabel">Bio:</span></label>
             <textarea class="form-control char-len" rows="3" name="bio" maxlength="55"></textarea>
-            55 Characters /2 Lines Maximum
+            55 Characters Maximum
         </div>
         <input type="submit" value="Confirm Bio">
         </form>
