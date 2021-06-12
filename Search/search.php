@@ -246,7 +246,7 @@ $(".dpdown1").click(function(){
                     }
                     else{
                         $("#response").html("");
-                        $("#list").html("test Ingredients");
+                        $("#list").html("test Ingredients"); //pwede lagyan ng div class dito like <div>test</div>
                     }
                 });
 
@@ -298,7 +298,7 @@ $(".dpdown1").click(function(){
                     }
                     else{
                         $("#response1").html("");
-                        $("#list").html("test Recipe");
+                        $("#list").html("test Recipe"); //pwede lagyan ng div class dito like <div>test</div>
                     }
                 });
 
