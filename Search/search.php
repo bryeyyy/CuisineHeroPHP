@@ -1,4 +1,4 @@
-<?php
+<?php //Ingredients Name
 	if (isset($_POST['search'])) {
 		$response = "<ul class='nores font-weight-bold'>No Ingredients found :( <br>
             <img src='empty-cart.png'>
@@ -23,6 +23,33 @@
 		}
 
 		exit($response);
+	}
+?>
+<?php //Recipe Name
+	if (isset($_POST['search1'])) {
+		$response1 = "<ul class='nores font-weight-bold'>No Recipe found :( <br>
+        <img src='empty-cart.png'></ul>";
+
+		$connection1 = new mysqli('localhost', 'root', '', 'food');
+		$q1 = $connection1->real_escape_string($_POST['q1']);
+
+		$sql1 = $connection1->query("SELECT * FROM food
+				WHERE food_name LIKE '%$q1%'");
+
+		if ($sql1->num_rows > 0) {
+			$response1 = "<ul>";
+			$prevFood = false;
+			while ($data1 = $sql1->fetch_assoc()){
+				$fName = $data1['food_name'];
+				if(strtoupper($prevFood) == strtoupper($fName)){$fName = ' ';}
+            	else{$response1 .= "<li class='sb1'>" .$fName. "</li>";}
+            	$prevFood = $data1['food_name'];
+			}
+			$response1 .= "</ul>";
+		}
+
+
+		exit($response1);
 	}
 ?>
 <!DOCTYPE html>
@@ -99,7 +126,7 @@
     <div class="col-12">
             <div class="container-fluid">   
             <div class="row  text-center" id="searchquery">
-            <input type="text" id="searchBox" class="col-10" name="Search" placeholder="Type your ingredient">
+            <input type="text" id="searchBox" class="col-10" name="Search" placeholder="Type your ingredient" autocomplete="off">
             <a class="col-2" href="#" id="srchbtn"></a>
         </div>
     </div>
@@ -135,13 +162,13 @@
 </div>
 <div class="collapse recp1" data-parent="#accordion">
     <div class="col-12">
-
             <div class="container-fluid">   
             <div class="row">
-            <input type="text" class="col-10" name="Search" id="" placeholder="Type the name of the Recipe">
+            <input type="text" class="col-10" name="txtRecipe" id="searchBox1" placeholder="Type the name of the Recipe" autocomplete="off">
             <a class="col-2" href="#" id="srchbtn2"></a>
-        </div></div>
-        </form>
+        </div>
+        <div id="response1"></div>
+    </div>
     </div>
 </div>
 </div>
@@ -151,6 +178,7 @@
         <div class="container-fluid">
             <h1 id="youcancook" class="font-weight-bold">You can cook:</h1>
                 <div class="row" id="list">
+                    DITO UNG STARTING
             <!--Bali ung isang card i aappend nalang no need for conf-->
         </div>
     </div>
@@ -218,6 +246,7 @@ $(".dpdown1").click(function(){
                     }
                     else{
                         $("#response").html("");
+                        $("#list").html("test Ingredients");
                     }
                 });
 
@@ -247,5 +276,48 @@ $(".dpdown1").click(function(){
                     });
                 }); 
             });
+            $(document).ready(function () {
+                $("#searchBox1").keyup(function () {
+                    var query1 = $("#searchBox1").val();
+
+                    if (query1.length > 1) {
+                        $.ajax(
+                            {
+                                url: 'search.php',
+                                method: 'POST',
+                                data: {
+                                    search1: 1,
+                                    q1: query1
+                                },
+                                success: function (data) {
+                                    $("#response1").html(data);
+                                },
+                                dataType: 'text'
+                            }
+                        );
+                    }
+                    else{
+                        $("#response1").html("");
+                        $("#list").html("test Recipe");
+                    }
+                });
+
+                $(document).on('click', 'li.sb1', function () {
+                    var ingr = $(this).text();
+                    $("#searchBox1").val(ingr);
+                    $("#response1").html("");
+                });
+            });
+            $("#srchbtn2").click(function(){
+                var recipe = $("#searchBox1").val();
+                    $.ajax({ 
+                        url: "searchRec.php", 
+                        type: "POST",
+                        data: { 'txtRecipe' : recipe}, 
+                        success: function(data) {
+                                $("#list").html(data);
+                            } 
+                    });
+                }); 
 </script>
 

@@ -67,7 +67,7 @@ input[type='text']{
     font-size: 20px;
     border-radius: 50px;
     padding: 5px;
-    width: 400px !important;
+    width: 400px;
     padding-left: 25px;
     border-width: 1px;
     font-family:'Krub';
@@ -263,4 +263,47 @@ div button.dpdown1 img{
 }
 #response div{
     text-align: center;
+}
+#response{
+    margin-top: 10px;
+    margin-left:5px;
+    width: 325px;
+    background-color: rgba(20, 190, 125, 0.288);
+    border-radius: 20px;
+    font-family: 'Krub';
+    overflow: hidden;
+}
+#response1 .nores{
+    text-align: center;
+    margin-top:20px;
+}
+#response1 ul li{ /*DITO ung search results*/ 
+    text-indent: 20px;
+    list-style-type: none;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#response1 ul li:hover{
+    background-color: black;
+    color:white;
+}
+#response1 div{
+    text-align: center;
+}
+#response1{
+    margin-top: 10px;
+    margin-left:5px;
+    width: 325px;
+    background-color: rgba(20, 190, 125, 0.288);
+    border-radius: 20px;
+    font-family: 'Krub';
+    overflow: hidden;
+}
+.card a:link,.card a:visited,.card a:active{
+    text-decoration: none;
+    color: black;
+}
+.card a:hover{
+    color: white;
 }
