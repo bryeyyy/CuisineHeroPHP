@@ -20,7 +20,7 @@ while($row = $result->fetch_assoc()){
             <img src="images/'.$row1['dispic'].'">
             </div>
             <div class="usrnm">
-            <p>'.$row1['firstname'].' '.$row1['lastname'].'</div></div>
+            <p>'.$row1['firstname'].' '.$row1['lastname'].'</div></a></div>
             <form method="post" action="../feed_files/to-profile.php" name="redirect1" class="redirect1">
             <input type="hidden" class="post1" name="post1" value="">
             <input type="submit" style="display: none;">
