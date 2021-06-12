@@ -28,26 +28,26 @@ if ($result = $con->query($queryf)){ //Food Name
         $foodname = $row["food_name"];
         echo $foodname;
         $result = $con->query($queryf);
-        $row = mysqli_fetch_assoc($result);
+        while($row = mysqli_fetch_assoc($result)){
         echo '</h1><h6 class="col-12">'.$row['likes'].' Like(s)</h6>
         <div class="col-12 Indention-Ing">
-        Preparation Time: <span>wala pa</span>
+        Preparation Time: <span>'.$row['prep_time'].'</span>
         </div>
         <div class="col-12 Indention-Ing">
-        Cooking Time: <span>wala pa</span>
+        Cooking Time: <span>'.$row['cook_time'].'</span>
         </div>
         <div class="col-12 Indention-Ing">
-        Total Time: <span>wala pa</span>
-        </div>
-        <div class="col-12 Indention-Ing">
-        Servings: <span>wala pa</span>
+        Servings: <span>'.$row['servings'].'</span>
         </div>
         <h2 class="col-12 Ingredient-Title">
         Ingredients
         </h2>';
+        }
 
 if ($result = $con->query($querym)){
+  if($result->fetch_assoc() !== null)
     echo '<h4 class="col-12 Indention-Ing">Meats:</h4>';
+    $result = $con->query($querym);
     while($row = $result->fetch_assoc()) {
       $meatname = $row["meat_name"];
       $meatamt = $row["meat_amt"];
@@ -60,7 +60,9 @@ if ($result = $con->query($querym)){
 
 
 if($result = $con->query($queryv)){
+  if($result->fetch_assoc() !== null)
   echo '<h4 class="col-12 Indention-Ing">Vegetables:</h4>';
+  $result = $con->query($queryv);
     while($row = $result->fetch_assoc()) {
       $vegname = $row["veggie_name"];
       $vegamt = $row["veggie_amt"];
@@ -70,7 +72,9 @@ if($result = $con->query($queryv)){
     }
 }
 if($result = $con->query($queryc)){
+  if($result->fetch_assoc() !== null)
   echo '<h4 class="col-12 Indention-Ing">Condiments:</h4>';
+  $result = $con->query($queryc);
     while($row = $result->fetch_assoc()) {
       $condiname = $row["condi_name"];
       $condiamt = $row["condi_amt"];
