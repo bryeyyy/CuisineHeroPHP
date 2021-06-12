@@ -259,13 +259,13 @@ $(document).on('click', 'a#add-Ing', function () {
     var ing = $('#name-Ing').val();
     var ing_amt = $('#amt-Ing').val();
     if(ing.length>0 && ing_amt.length>0 && cl_categ.length>0){
-        $('.app-Ings').append('<mema><button type="button" class="btn delbtn col-12 col-md-1">&#10006;</button><span class ="col-md-4 col-12">'+category+'</span><span class ="categs col-md-3 col-12 '+cl_categ+'">'+ing+'</span><span class="col-md-3 col-12 amt-'+cl_categ+'">'+ing_amt+'</span></mema>');
+        $('.app-Ings').append('<sayo><button type="button" class="btn delbtn col-12 col-md-1">&#10006;</button><span class ="col-md-4 col-12">'+category+'</span><span class ="categs col-md-3 col-12 '+cl_categ+'">'+ing+'</span><span class="col-md-3 col-12 amt-'+cl_categ+'">'+ing_amt+'</span></sayo>');
     }//Dito ung appending ingredients
     else {
         alert('Please fill-up the name of ingredient and the amount.');
     }
     $(document).on('click', 'button.delbtn', function() {
-  $(this).closest('mema').remove();
+  $(this).closest('sayo').remove();
 });
 });
 </script>
