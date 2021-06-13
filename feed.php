@@ -139,22 +139,22 @@
                             <form method="POST" action="feed.php" id="recp-form">
                                 <div id="croppie-demo"></div>
                                 <label for="recimg"><span class="formlabel">Upload Recipe Picture</span></label><br>
-                                <input type="file" id="croppie-input" name="filename" class="text-center">
+                                <input type="file" id="croppie-input" name="filename" class="text-center" required>
                                 <div class="form-group">
                                     <label for="rec"><span class="formlabel">Recipe Name:</span></label>
-                                    <textarea class="form-control" rows="1" name="recname"></textarea>
+                                    <textarea class="form-control" rows="1" name="recname" id="recname" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="prep"><span class="formlabel">Preparation Time:</span></label>
-                                    <textarea class="form-control" rows="1" name="preptime"></textarea>
+                                    <textarea class="form-control" rows="1" name="preptime" id="preptime" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="cookt"><span class="formlabel">Cooking Time:</span></label>
-                                    <textarea class="form-control" rows="1" name="cooktime"></textarea>
+                                    <textarea class="form-control" rows="1" name="cooktime" id="cooktime" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="serv"><span class="formlabel">Serving:</span></label>
-                                    <textarea class="form-control" rows="1" name="serve"></textarea>
+                                    <textarea class="form-control" rows="1" name="serve" id="serve" required></textarea>
                                 </div>
                                 <div class="form-group" id="ingrform">
                                     <label for="ingredients"><span class="formlabel">Ingredients:</span></label><br>
@@ -198,14 +198,14 @@
                                   </div>
                                   <div class="form-group">
                                     <label for="procedures"><span class="formlabel">Procedures:</span></label>
-                                    <textarea class="form-control" rows="5" name="proce"></textarea>
+                                    <textarea class="form-control" rows="5" name="proce" id="proce" required></textarea>
                                   </div>
                                   <div class="form-group">
-                                    <label for="nutri"><span class="formlabel">Nutritional Value:</span></label>
+                                    <label for="nutri"><span class="formlabel">Nutritional Value (Optional):</span></label>
                                     <textarea class="form-control" rows="5" name="nutrval"></textarea>
                                   </div>
                                   <div class="form-group">
-                                    <label for="nutri"><span class="formlabel">Youtube Link Tutorial: (Right-click video and choose "Copy embed code")</span></label>
+                                    <label for="ytlink"><span class="formlabel">Youtube Link Tutorial (Optional): (Right-click video and choose "Copy embed code")</span></label>
                                     <textarea class="form-control" rows="1" name="ytlink"></textarea>
                                   </div>
                                 <button type="submit" class="btn croppie-upload" id="postbtn" name="btnPost"><span class="posttxt">Post your Recipe</span></button>
@@ -572,10 +572,6 @@ $("#postbtn").click(function(){
             //alert(data);
         }    
      });
-     alert('Successfully created your Recipe.');
-     $( '#newsletterform' ).each(function(){
-    this.reset();
-    });
  }); 
  var croppieDemo = $('#croppie-demo').croppie({
             enableOrientation: true,
@@ -604,15 +600,29 @@ $("#postbtn").click(function(){
                 type: 'canvas',
                 size: {width: 400,height: 550,}
             }).then(function (image) {
+                var ext = $('#croppie-input').val().split('.').pop().toLowerCase();
+                if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+                alert('Invalid form input!');
+                }
                 $.ajax({
                     url: "feed_files/upload.php",
                     type: "POST",
                     data: {
                         "image" : image
-                    }
+                    },
                 });
             });
         });
+        $('button#postbtn').prop('disabled', true);
+        $('textarea').keyup(function(){
+        if ($('#recname').val().length>0 && $('#cooktime').val().length>0 && $('#preptime').val().length>0 && $('#serve').val().length>0 && $('#proce').val().length>0){
+            $('button#postbtn').prop('disabled', false);
+        }
+        else{
+            $('button#postbtn').prop('disabled', true);
+        }
+    });
+
 </script>
 
 <?php

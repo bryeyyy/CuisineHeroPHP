@@ -11,7 +11,7 @@ $con = mysqli_connect($server,$username,$password,$dbname);
 $queryf = "SELECT * FROM food WHERE food_id = '$food_id'";
 $querym = "SELECT * FROM meat WHERE food_id = '$food_id'";
 $queryv = "SELECT * FROM veggies WHERE food_id = '$food_id'";
-$queryc = "SELECT * FROM condiments WHERE food_id = '$food_id'";
+$queryc = "SELECT * FROM condi WHERE food_id = '$food_id'";
 $queryfh = "SELECT * FROM fish WHERE food_id = '$food_id'";
 $queryo = "SELECT * FROM oil WHERE food_id = '$food_id'";
 $queryft = "SELECT * FROM fruit WHERE food_id = '$food_id'";
