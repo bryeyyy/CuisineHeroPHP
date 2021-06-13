@@ -29,8 +29,11 @@
 				echo '
 				<div class="card">
 				<a href="javascript:void(0)" class="link" var="'.$fID.'">
-				<div class="imgcontainer">
-					<img src="../Ingredients/Images/'.$row['food_img'].'">
+				<div class="imgcontainer">';
+				$queryImg = "SELECT * FROM recipe_images WHERE food_id='$fID'";
+				$resultImg = $con->query($queryImg);
+				$rowImg = $resultImg -> fetch_assoc();
+				echo	'<img src="../Ingredients/Images/'.$rowImg['food_img'].'">
 				</div>
 						<div class="card-body texts">
 								<h3 class="card-title font-weight-bold">'.$fName.'</h3>

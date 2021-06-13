@@ -19,7 +19,7 @@
                 <br/>
                 <button class="btn btn-success croppie-upload">Upload Image</button>
               </div>
-              <div class="col-md-4" style="">
+              <div class="col-md-4">
                 <div id="croppie-view"></div>
               </div>
         </div>

@@ -13,8 +13,8 @@
 		$sql=$con->query("SELECT * FROM food 
 				LEFT OUTER JOIN veggies ON veggies.food_id = food.food_id
 				LEFT OUTER JOIN meat ON meat.food_id = veggies.food_id
-				LEFT OUTER JOIN condiments ON condiments.food_id = meat.food_id
-				HAVING veggie_name IN ($ings) OR meat_name IN ($ings) OR condi_name IN ($ings)"); 
+				LEFT OUTER JOIN condi ON condi.food_id = meat.food_id
+				HAVING veggies_name IN ($ings) OR meat_name IN ($ings) OR condi_name IN ($ings)"); 
 		
 
       	if($sql->num_rows > 0){
@@ -36,8 +36,11 @@
 					echo '
 					<div class="card">
 					<a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
-					<div class="imgcontainer">
-						<img src="../Ingredients/Images/'.$row['food_img'].'">
+					<div class="imgcontainer">';
+					$queryImg = "SELECT * FROM recipe_images WHERE food_id=".$row['food_id']."";
+					$resultImg = $con->query($queryImg);
+					$rowImg = $resultImg -> fetch_assoc();
+					echo'	<img src="../Ingredients/Images/'.$rowImg['food_img'].'">
 					</div>
 							<div class="card-body texts">
 									<h3 class="card-title font-weight-bold">'.$row['food_name'].'</h3>

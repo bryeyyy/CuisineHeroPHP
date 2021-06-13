@@ -32,8 +32,11 @@ while($row = $result->fetch_assoc()){
             </div>
             </a>
             <a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
-            <div class="foodpic">
-            <img class="img-fluid" src="../Ingredients/Images/'.$row1['food_img'].'">
+            <div class="foodpic">';
+            $queryImg = "SELECT * FROM recipe_images WHERE food_id='$food_id'";
+            $resultImg = $con->query($queryImg);
+            $rowImg = $resultImg -> fetch_assoc();
+            echo'<img class="img-fluid" src="../Ingredients/Images/'.$rowImg['food_img'].'">
             </div>
             <div class="foodlabel">
             <h2>'.$row1['food_name'].'</h2>         

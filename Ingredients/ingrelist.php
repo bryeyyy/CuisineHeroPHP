@@ -16,7 +16,10 @@ $queryc = "SELECT * FROM condiments WHERE food_id = '$food_id'";
 if ($result = $con->query($queryf)){ //Food Name
         $row = mysqli_fetch_array($result);
         echo '<div class="col-12 col-md-6 foodImg">';
-        echo "<img id='foodImg'src='images/".$row['food_img']."'>";
+        $queryImg = "SELECT * FROM recipe_images WHERE food_id='$food_id'";
+        $resultImg = $con->query($queryImg);
+        $rowImg = $resultImg -> fetch_assoc();
+        echo "<img id='foodImg'src='images/".$rowImg['food_img']."'>";
         echo'
         </div>
         <div class="col-12 col-md-5 adjust">

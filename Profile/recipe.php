@@ -12,8 +12,11 @@ if ($result = $con->query($queryf)){
 while($row = $result->fetch_assoc()){
             echo '<div class="card col-12 col-md-4">
             <a href="javascript:void(0)" class="link" var="'.$row['food_id'].'">
-            <div class="foodpic recp-tab">
-            <img class="img-fluid" src="../Ingredients/Images/'.$row['food_img'].'">
+            <div class="foodpic recp-tab">';
+            $queryImg = "SELECT * FROM recipe_images WHERE food_id=".$row['food_id']."";
+            $resultImg = $con->query($queryImg);
+            $rowImg = $resultImg -> fetch_assoc();
+            echo'<img class="img-fluid" src="../Ingredients/Images/'.$rowImg['food_img'].'">
             </div>
             <div class="foodlabel">
             <h2>'.$row['food_name'].'</h2>         
