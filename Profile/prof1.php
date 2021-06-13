@@ -21,7 +21,7 @@ if ($result = $con->query($query)){
         <h5 class="col-6 col-md-12 bud">
         '.$row['followno'].' Followers</h5>
         <h5 class="col-6 col-md-12 recp">
-        '.$row['recpno'].' Recipe</h5>
+        '.$row['recpno'].' Recipes</h5>
         <div class="biocon col-12"><div id="bio">'.$row["bio"].'</div></div> 
         </div>';//bio
 }

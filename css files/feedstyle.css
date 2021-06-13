@@ -230,7 +230,6 @@ img[src="Ingredients/like.png"]{
     height: 40px;
 }
 .liked img[src="Ingredients/like.png"]{
-
     filter: invert(0%);
 }
 .icons{

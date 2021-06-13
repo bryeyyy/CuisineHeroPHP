@@ -1,3 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+
+}
 .collapsibleNavbar{
     transition: ease 0.8s;
 }
@@ -6,11 +12,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color:rgba(15, 11, 37, 0.5);
+    background-color:rgba(12, 221, 158, 0.767);
     justify-content: space-between;
     width: 100%;
     min-height: 8vh;
-    z-index: 9998;
+    z-index: 1000;
     align-items: center;
     margin:auto;
     top: 0;
@@ -41,6 +47,7 @@
 .navbar{
     position: relative;
 }
+
 #picbanner{
     display: block;
     margin: auto;
@@ -91,10 +98,14 @@
 }
 button.btn#Edit div:hover{
     filter: invert(100);
-    transition: ease-in-out 0.2s;
+
+    padding-right: 5px;
+    padding-left:5px;
+    font-size: 18px;
 }
 button.btn#Edit div{
     position: absolute;
+    transition: ease-in-out 0.5s;
     left: 71vw;
     top: 255px;
     width: 120px;
@@ -102,6 +113,8 @@ button.btn#Edit div{
     color: white;
     background-color: black;
     border: 1px solid white;
+    font-family: 'Raleway';
+    font-size:15px;
 }
 .spacing{
     margin-top: 360px;
@@ -134,17 +147,35 @@ button.btn#Edit div{
     margin: 0;
     padding: 0; 
 }
-
 .card{
-    border: solid black;
+    transition:  0.5s ease;
+    border: solid black 1px;
     height: max-content;
     width: auto;
     padding:20px;
-    margin-bottom:20px;
+    margin-bottom:20px !important;
+    margin: 20px;
     box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 -webkit-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 -moz-box-shadow: 5px 6px 5px -3px rgba(0,0,0,0.55);
 cursor: pointer;
+}
+.card:hover{
+    transform: translate(0%, -1%);
+    box-shadow: 11px 11px 18px -1px rgba(0,0,0,0.62);
+-webkit-box-shadow: 11px 11px 18px -1px rgba(0,0,0,0.62);
+-moz-box-shadow: 11px 11px 18px -1px rgba(0,0,0,0.62);
+}
+
+.following{
+    box-shadow: none;
+    margin: 10px !important;
+    width: 100px !important;
+    border: solid transparent;
+}
+.following:hover{
+    box-shadow: none;
+    transform: translate(0%, 2%);
 }
 #bio{
     overflow-wrap: break-word;
@@ -236,6 +267,16 @@ button.follow-btn div{
     bottom: 0px;
     top: -10px;
 }
+.accnos{
+    font-family: 'Raleway';
+}
+#bio{
+    font-family: 'Raleway';
+}
+.profile-name{
+    font-family: 'Raleway';
+    font-weight: bold;
+}
 @media screen and (max-width: 768px) {
     #bio{
         position: static;
@@ -312,7 +353,62 @@ button.follow-btn div{
     .accnos{
         position: static;
         text-align: center;
+        align-items: center;
         margin: auto;
         width: 500px;
     }
   }
+#EditProf{
+    z-index: 9998;
+    font-family: 'Krub';
+    transition: ease-in 0.2s;
+}
+.modal-content{
+    background-color: rgba(255, 255, 255, 0.644);
+    backdrop-filter: blur(5px);
+}
+.formlabel{
+    font-size: 25px;
+}
+input[type='submit']{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    transition: 0.8s ease;
+}
+input[type='submit']:hover{
+    background-color: transparent;
+    border: black solid 2px;
+    color: black;
+}
+input[type='text']{
+    border: solid black 1px;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+input[type='password']{
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 10px;
+    border: solid black 1px;
+}
+#imgupload{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 50px;
+    transition: 0.8s ease;
+    text-align: center;
+}
+#imgupload:hover{
+    background-color: rgb(0, 255, 98);
+    color: rgb(0, 0, 0);
+}
+#croppie-demo1{
+    margin-bottom: 50px !important;
+}
