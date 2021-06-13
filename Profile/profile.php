@@ -4,7 +4,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<title>CuisineHero |Profile</title>
+<title>CuisineHero - Profile</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
@@ -60,7 +60,7 @@
                     <div class="col-12 text-center" id="buffer">
                         <ul class="nav nav-tabs justify-content-center" role="tablist">
                             <li class="nav-item tab1 d-none d-md-block">
-                              <a class="nav-link active" data-toggle="tab" href="#recp">Recipe</a>
+                              <a class="nav-link active" data-toggle="tab" href="#recp">Recipes</a>
                             </li>
                             <li class="nav-item tab1 d-none d-md-block">
                               <a class="nav-link" data-toggle="tab" href="#fav">Favorites</a>
@@ -101,54 +101,54 @@
 </div></div></div>
 </body>
 <div class="modal fade" id="EditProf">
-        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" id="Editmodal">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-center">
+                <h1 class="font-weight-bold">Profile Settings</h1>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-center">
                 <div class="container">
-                  <h1 style="text-align:center;">Profile Settings</h1><br>
-        <h2>Change Profile Picture</h2>
+        <h2 class="font-weight-bold">Change Profile Picture</h2>
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center ">
                 <div id="croppie-demo"></div>
               </div>
-              <div class="col-12" id="croppie-container">
+              <div class="col-12 d-flex justify-items-center" id="croppie-container">
                 <strong class="options">Select Image:</strong>
                 <input class="options" type="file" id="croppie-input">
-                <button class="btn btn-success options croppie-upload">Upload Image</button><br>
+                <button class="btn options croppie-upload" id="imgupload">Upload Image</button><br>
                 <div id="croppie-view"></div>
               </div>
                 
         </div>
-        <h2>Change Profile Banner</h2>
+        <h2 class="font-weight-bold">Change Profile Banner</h2>
         <div class="row">
             <div class="col-12 text-center">
               <div id="croppie-demo1"></div>
-              <div class="col-12 options1" id="croppie-container">
+              <div class="col-12 options1 d-flex justify-items-center" id="croppie-container">
                 <strong class="options">Select Image:</strong>
                 <input class="options" type="file" id="croppie-input1">
-                <button class="btn btn-success options croppie-upload1">Upload Image</button><br>
+                <button class="btn options croppie-upload1" id="imgupload">Upload Image</button><br>
                 <div id="croppie-view1"></div>
               </div>
         </div>
         </div>
         <form action="bio.php" method="POST">
         <div class="form-group">
-            <label for="bio"><span class="formlabel">Bio:</span></label>
+            <label for="bio"><span class="formlabel">Biography</span></label>
             <textarea class="form-control char-len" rows="3" name="bio" maxlength="55"></textarea>
-            55 Characters Maximum
+            55 Maximum Characters
         </div>
-        <input type="submit" value="Confirm Bio">
+        <input type="submit" value="Confirm Biography">
         </form>
-        <h1 style="text-align:center;">Account Settings</h1><br>
+        <h1 class="font-weight-bold">Account Settings</h1><br>
         <div class="row">
           <div class="col-12">
         <form action="ChangePass.php" method="POST">
-          Change Password: <input id="pw1" type="password" required name="changepassword"><br>
-          Confirm Password: <input id="pw2" type="password" required>
-          <input id="block"type="submit" value="Confirm">
+          <input id="pw1" type="password" required name="changepassword" placeholder="New Password"><br>
+            <input id="pw2" type="password" required placeholder="Confirm Password"><br>
+          <input id="block"type="submit" value="Confirm Change Password">
         </form>
         <div id="match"></div>
         </div></div>
@@ -222,8 +222,6 @@
                 height: 125,
             },
             boundary: {
-                width: 600,
-                height: 200
             }
         });
 
