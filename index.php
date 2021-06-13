@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
-    <link rel="shortcut icon" href="images/logo white.png">
+    <link rel="shortcut icon" href="Images/logo white.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -78,7 +78,7 @@
         <div class="col-lg-8 col-sm-12 justify-content-center" id="botpic">
             <div class="images" >
                 <div id="img1">
-                    <img id="laptop" src="images/laptop feed.png">
+                    <img id="laptop" src="Images/laptop feed.png">
                 </div>
             </div>
         </div>
@@ -185,9 +185,9 @@
                 <div class="socials">
                     <h1 class="colh1">Socials</h1>
                     <ul>
-                        <li><a href="facebook.com"><img class="socicon" src="images\facebook.png"></a></li>
-                        <li><a href="instagram.com"><img class="socicon" src="images\instagram.png"></a></li>
-                        <li><a href="twitter.com"><img class="socicon" src="images\twitter.png"></a></li>
+                        <li><a href="facebook.com"><img class="socicon" src="Images\facebook.png"></a></li>
+                        <li><a href="instagram.com"><img class="socicon" src="Images\instagram.png"></a></li>
+                        <li><a href="twitter.com"><img class="socicon" src="Images\twitter.png"></a></li>
                     </ul>
                 </div>
             </div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-    <link rel="shortcut icon" href="images/logo white.png">
+    <link rel="shortcut icon" href="Images/logo white.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Krub' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js" integrity="sha512-0RYHqoOARmpxNEw+esxNHXaPoXWU36swC8a5BgmnexZNmOhDewCvKRNWitJiwf40o8JUsg831Uu/cRIN7sCdKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -224,9 +224,9 @@ By your participation and invitations, CuisineHero will be able to expand its us
                     <div class="socials">
                         <h1 class="colh1">Socials</h1>
                         <ul>
-                            <li><a href="facebook.com"><img class="socicon" src="images\facebook.png"></a></li>
-                            <li><a href="instagram.com"><img class="socicon" src="images\instagram.png"></a></li>
-                            <li><a href="twitter.com"><img class="socicon" src="images\twitter.png"></a></li>
+                            <li><a href="facebook.com"><img class="socicon" src="Images\facebook.png"></a></li>
+                            <li><a href="instagram.com"><img class="socicon" src="Images\instagram.png"></a></li>
+                            <li><a href="twitter.com"><img class="socicon" src="Images\twitter.png"></a></li>
                         </ul>
                     </div>
                 </div>

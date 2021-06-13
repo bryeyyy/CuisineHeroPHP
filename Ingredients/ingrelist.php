@@ -12,6 +12,15 @@ $queryf = "SELECT * FROM food WHERE food_id = '$food_id'";
 $querym = "SELECT * FROM meat WHERE food_id = '$food_id'";
 $queryv = "SELECT * FROM veggies WHERE food_id = '$food_id'";
 $queryc = "SELECT * FROM condiments WHERE food_id = '$food_id'";
+$queryfh = "SELECT * FROM fish WHERE food_id = '$food_id'";
+$queryo = "SELECT * FROM oil WHERE food_id = '$food_id'";
+$queryft = "SELECT * FROM fruit WHERE food_id = '$food_id'";
+$queryss = "SELECT * FROM spice WHERE food_id = '$food_id'";
+$queryd = "SELECT * FROM dairy WHERE food_id = '$food_id'";
+$queryds = "SELECT * FROM dessert WHERE food_id = '$food_id'";
+$querysc = "SELECT * FROM soup WHERE food_id = '$food_id'";
+$queryn = "SELECT * FROM nuts WHERE food_id = '$food_id'";
+$queryb = "SELECT * FROM bake WHERE food_id = '$food_id'";
 
 if ($result = $con->query($queryf)){ //Food Name
         $row = mysqli_fetch_array($result);
@@ -48,44 +57,190 @@ if ($result = $con->query($queryf)){ //Food Name
         }
 
 if ($result = $con->query($querym)){
-  if($result->fetch_assoc() !== null)
+
+    $row=$result->fetch_assoc();
+    $check = $row['meat_name'];
+      if(strlen($check)>0){
     echo '<h4 class="col-12 Indention-Ing">Meats:</h4>';
     $result = $con->query($querym);
     while($row = $result->fetch_assoc()) {
       $meatname = $row["meat_name"];
       $meatamt = $row["meat_amt"];
       echo '<div class="col-12 Indention-Ing">
-      - '.$meatname.' '.$meatamt.' kg
+      - '.$meatname.' '.$meatamt.'
       </div>';
     }
   }
 
+}
+if ($result = $con->query($queryfh)){
+    $row=$result->fetch_assoc();
+    $check = $row['fish_name'];
+      if(strlen($check)>0){
+    echo '<h4 class="col-12 Indention-Ing">Fish/Seafood:</h4>';
+    $result = $con->query($queryfh);
+    while($row = $result->fetch_assoc()) {
+      $meatname = $row["fish_name"];
+      $meatamt = $row["fish_amt"];
+      echo '<div class="col-12 Indention-Ing">
+      - '.$meatname.' '.$meatamt.'
+      </div>';
+    }
+  }
+}
+if ($result = $con->query($queryo)){
+    $row=$result->fetch_assoc();
+    $check = $row['oil_name'];
+      if(strlen($check)>0){
+    echo '<h4 class="col-12 Indention-Ing">Oil/Liquid:</h4>';
+    $result = $con->query($queryo);
+    while($row = $result->fetch_assoc()) {
+      $meatname = $row["oil_name"];
+      $meatamt = $row["oil_amt"];
+      echo '<div class="col-12 Indention-Ing">
+      - '.$meatname.' '.$meatamt.'
+      </div>';
+    }
+  }
+}
 
 
 if($result = $con->query($queryv)){
-  if($result->fetch_assoc() !== null)
+    $row=$result->fetch_assoc();
+    $check = $row['veggies_name'];
+      if(strlen($check)>0){
   echo '<h4 class="col-12 Indention-Ing">Vegetables:</h4>';
   $result = $con->query($queryv);
     while($row = $result->fetch_assoc()) {
-      $vegname = $row["veggie_name"];
-      $vegamt = $row["veggie_amt"];
+      $vegname = $row["veggies_name"];
+      $vegamt = $row["veggies_amt"];
       echo '<div class="col-12 Indention-Ing">
-      - '.$vegname.' '.$vegamt.' kg
+      - '.$vegname.' '.$vegamt.'
       </div>';
     }
+  }
+}
+if ($result = $con->query($queryft)){
+    $row=$result->fetch_assoc();
+    $check = $row['fruit_name'];
+      if(strlen($check)>0){
+    echo '<h4 class="col-12 Indention-Ing">Fruits:</h4>';
+    $result = $con->query($queryft);
+    while($row = $result->fetch_assoc()) {
+      $meatname = $row["fruit_name"];
+      $meatamt = $row["fruit_amt"];
+      echo '<div class="col-12 Indention-Ing">
+      - '.$meatname.' '.$meatamt.'
+      </div>';
+    }
+  }
+}
+if ($result = $con->query($queryss)){
+    $row=$result->fetch_assoc();
+    $check = $row['spice_name'];
+      if(strlen($check)>0){
+    echo '<h4 class="col-12 Indention-Ing">Spices/Seasonings/Sweeteners:</h4>';
+    $result = $con->query($queryss);
+    while($row = $result->fetch_assoc()) {
+      $meatname = $row["spice_name"];
+      $meatamt = $row["spice_amt"];
+      echo '<div class="col-12 Indention-Ing">
+      - '.$meatname.' '.$meatamt.'
+      </div>';
+    }
+  }
+}
+if ($result = $con->query($queryd)){
+  $row=$result->fetch_assoc();
+  $check = $row['dairy_name'];
+    if(strlen($check)>0){
+    echo '<h4 class="col-12 Indention-Ing">Dairy:</h4>';
+    $result = $con->query($queryd);
+    while($row = $result->fetch_assoc()) {
+      $meatname = $row["dairy_name"];
+      $meatamt = $row["dairy_amt"];
+      echo '<div class="col-12 Indention-Ing">
+      - '.$meatname.' '.$meatamt.'
+      </div>';
+    }
+  }
 }
 if($result = $con->query($queryc)){
-  if($result->fetch_assoc() !== null)
+  $row=$result->fetch_assoc();
+  $check = $row['condi_name'];
+    if(strlen($check)>0){
   echo '<h4 class="col-12 Indention-Ing">Condiments:</h4>';
   $result = $con->query($queryc);
     while($row = $result->fetch_assoc()) {
       $condiname = $row["condi_name"];
       $condiamt = $row["condi_amt"];
       echo '<div class="col-12 Indention-Ing">
-      - '.$condiname.' '.$condiamt.' tbsp
+      - '.$condiname.' '.$condiamt.'
       </div>';
     }
+}
   }
+  if ($result = $con->query($querysc)){
+    $row=$result->fetch_assoc();
+    $check = $row['soup_name'];
+      if(strlen($check)>0){
+      echo '<h4 class="col-12 Indention-Ing">Soup/Sauces:</h4>';
+      $result = $con->query($querysc);
+      while($row = $result->fetch_assoc()) {
+        $meatname = $row["soup_name"];
+        $meatamt = $row["soup_amt"];
+        echo '<div class="col-12 Indention-Ing">
+        - '.$meatname.' '.$meatamt.'
+        </div>';
+      }
+    }
+  }
+  if ($result = $con->query($queryds)){
+    $row=$result->fetch_assoc();
+    $check = $row['dessert_name'];
+      if(strlen($check)>0){
+      echo '<h4 class="col-12 Indention-Ing">Dessert/Snacks:</h4>';
+      $result = $con->query($queryds);
+      while($row = $result->fetch_assoc()) {
+        $meatname = $row["dessert_name"];
+        $meatamt = $row["dessert_amt"];
+        echo '<div class="col-12 Indention-Ing">
+        - '.$meatname.' '.$meatamt.'
+        </div>';
+      }
+    }
+  }
+  if ($result = $con->query($queryn)){
+    $row=$result->fetch_assoc();
+    $check = $row['nuts_name'];
+      if(strlen($check)>0){
+      echo '<h4 class="col-12 Indention-Ing">Nuts/Legumes:</h4>';
+      $result = $con->query($queryn);
+      while($row = $result->fetch_assoc()) {
+        $meatname = $row["nuts_name"];
+        $meatamt = $row["nuts_amt"];
+        echo '<div class="col-12 Indention-Ing">
+        - '.$meatname.' '.$meatamt.'
+        </div>';
+      }
+    }
+  }
+  if ($result = $con->query($queryb)){
+    $row=$result->fetch_assoc();
+    $check = $row['bake_name'];
+      if(strlen($check)>0){
+      echo '<h4 class="col-12 Indention-Ing">Baking & Grains:</h4>';
+      $result = $con->query($queryb);
+      while($row = $result->fetch_assoc()) {
+        $meatname = $row["bake_name"];
+        $meatamt = $row["bake_amt"];
+        echo '<div class="col-12 Indention-Ing">
+        - '.$meatname.' '.$meatamt.'
+        </div>';
+      }
+    }
+  }
+  
   echo '<h2 class="col-12 Ingredient-Title">
         Procedures
         </h2>';
@@ -105,7 +260,7 @@ if($result = $con->query($queryc)){
   - '.$nutri_info.'
   </div>';
   echo '</div></div></div>
-  <div class="container-fluid">
+  <div class="container-fluid spacing">
   <div class="row">
   <div class="col-1 d-none d-md-block"></div>
   <div class="col-md-6 col-12">';

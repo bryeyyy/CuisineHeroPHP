@@ -164,7 +164,13 @@ button.del-com div{
 .modal{
     z-index: 9998;
 }
+.spacing{
+    margin-top: 100px;
+}
 @media screen and (max-width: 768px) {
+    .spacing{
+        margin-top: 0px;
+    }
     .adjust{
         margin-top: -60px;
     }

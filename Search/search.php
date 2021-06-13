@@ -298,7 +298,7 @@ $(".dpdown1").click(function(){
                     }
                     else{
                         $("#response1").html("");
-                        $("#list").html("test Recipe"); //pwede lagyan ng div class dito like <div>test</div>
+                        $("#list").html('<div id="startsplash"><img src="https://media.giphy.com/media/cJYy5eegnMXuaDybIR/giphy.gif"><h1>Start Searching!</h1></div>'); //pwede lagyan ng div class dito like <div>test</div>
                     }
                 });
 
@@ -318,6 +318,6 @@ $(".dpdown1").click(function(){
                                 $("#list").html(data);
                             } 
                     });
-                }); 
+                });
 </script>
 
