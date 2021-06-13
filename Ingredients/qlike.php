@@ -1,8 +1,5 @@
 <?php 
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "food";
+include '../DB/cred.php';
 $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
 $food_id = isset($_SESSION['food_id'])? $_SESSION['food_id'] : null;
 

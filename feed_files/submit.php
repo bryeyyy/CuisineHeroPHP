@@ -1,9 +1,6 @@
 	<?php
 	session_start();
-		$server = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "food";
+	include '../DB/cred.php';
 		$con = mysqli_connect($server,$username,$password,$dbname);
 		
 		$query1 = "SELECT MAX(food_id) AS 'food_id' FROM food";

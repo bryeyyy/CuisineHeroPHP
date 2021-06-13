@@ -3,8 +3,8 @@
 		$response = "<ul class='nores font-weight-bold'>No Ingredients found :( <br>
             <img src='empty-cart.png'>
             </ul>";
-
-		$connection = new mysqli('localhost', 'root', '', 'food');
+            include '../DB/cred.php';
+            $connection = new mysqli($server,$username,$password,$dbname);
 		$q = $connection->real_escape_string($_POST['q']);
 
 		$sql = $connection->query("SELECT * FROM ingredients_all

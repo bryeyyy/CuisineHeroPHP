@@ -1,8 +1,5 @@
 <?php 
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "food";
+include '../../DB/cred.php';
 $email = isset($_SESSION['author'])? $_SESSION['author'] : null;
 
 $con = mysqli_connect($server,$username,$password,$dbname);

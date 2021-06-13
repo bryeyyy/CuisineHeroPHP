@@ -1,9 +1,6 @@
 <?php 
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "food";
+include 'cred.php';
 
 //POST
 $Fname=$_POST['firstname'];
@@ -12,7 +9,7 @@ $email=$_POST['email'];
 $pw1=$_POST['password'];
 
 
-$con = mysqli_connect($servername,$username,$password,$dbname);
+$con = mysqli_connect($server,$username,$password,$dbname);
 
 $ins = "SELECT * from acc where email ='$email'";
 $result = mysqli_query($con, $ins);

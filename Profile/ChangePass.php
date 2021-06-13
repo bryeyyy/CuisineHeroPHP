@@ -1,9 +1,6 @@
 <?php
 session_start();
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "food";
+include '../DB/cred.php';
 $pass = $_POST["changepassword"];
 $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
 

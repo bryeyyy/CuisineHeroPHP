@@ -1,6 +1,7 @@
 <?php
 session_start();
-$db = mysqli_connect("localhost", "root", "", "food");
+include '../DB/cred.php';
+$db = mysqli_connect($server,$username,$password,$dbname);
 $msg = "";
 
 $data = $_POST['image'];

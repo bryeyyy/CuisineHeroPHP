@@ -1,9 +1,6 @@
 <?php
 session_start();
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "food";
+include '../DB/cred.php';
 $bio = substr($_POST['bio'],0,55);
 $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
 $con = mysqli_connect($server,$username,$password,$dbname);

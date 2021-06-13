@@ -1,9 +1,6 @@
 <?php
 session_start();
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "food";
+include '../DB/cred.php';
 $id = $_POST['id'];
 $con = mysqli_connect($server,$username,$password,$dbname);
 $sel = "DELETE FROM comments WHERE id='$id'";

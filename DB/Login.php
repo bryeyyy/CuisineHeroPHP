@@ -1,16 +1,13 @@
 <?php 
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "food";
+include 'cred.php';
 
 //POST
 $email=$_POST['LogEmail'];
 $pw1=$_POST['LogPassword'];
 
 
-$con = mysqli_connect($servername,$username,$password,$dbname);
+$con = mysqli_connect($server,$username,$password,$dbname);
 
 $ins = "SELECT * from acc where email ='$email' && pass='$pw1'";
 $result = mysqli_query($con, $ins);

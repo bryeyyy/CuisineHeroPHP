@@ -1,10 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['firstname']) && isset($_SESSION['email'])){
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "food";
+        include '../DB/cred.php';
     $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
     $con = mysqli_connect($server,$username,$password,$dbname);
     $query = "SELECT * FROM acc WHERE email = '$email'";

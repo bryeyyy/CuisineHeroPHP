@@ -1,8 +1,5 @@
 	<?php
-		$server = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "food";
+include '../DB/cred.php';
 
 		$con = mysqli_connect($server,$username,$password,$dbname);
 		if(isset($_POST['ingArray'])){

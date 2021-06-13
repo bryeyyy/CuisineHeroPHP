@@ -1,6 +1,7 @@
 <?php
 session_start();
-$db = mysqli_connect("localhost", "root", "", "food");
+include '../DB/cred.php';
+$db = mysqli_connect($server,$username,$password,$dbname);
 $msg = "";
 $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
 
@@ -23,20 +24,5 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
     $msg = "Image uploaded successfully";
 }else{
     $msg = "Failed to upload image";
-}
-if ($result) {
-    // successfully inserted into database
-    $response["success"] = 1;
-    $response["message"] = "New user successfully created.";
-
-    // echoing JSON response
-    echo json_encode($response);
-} else {
-    // failed to insert row
-    $response["success"] = 0;
-    $response["message"] = 'Database error ' . mysqli_errno($con) . ' ' . mysqli_error($con);
-
-    // echoing JSON response
-    echo json_encode($response);
 }
 ?>
