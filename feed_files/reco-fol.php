@@ -1,5 +1,5 @@
 <?php
-include '../DB/cred.php';
+include 'DB/cred.php';
 $con = mysqli_connect($server,$username,$password,$dbname);
 $email = isset($_SESSION['email'])? $_SESSION['email']:null;
 $sel = "SELECT * FROM acc WHERE email !='$email' ORDER By followno Desc";
