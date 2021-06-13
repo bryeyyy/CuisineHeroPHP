@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['firstname']) && isset($_SESSION['email'])){
-        include '../DB/cred.php';
+        include 'DB/cred.php';
     $email = isset($_SESSION['email'])? $_SESSION['email'] : null;
     $con = mysqli_connect($server,$username,$password,$dbname);
     $query = "SELECT * FROM acc WHERE email = '$email'";
